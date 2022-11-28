@@ -44,5 +44,11 @@ public class Train {
     public int getSeats() {
         return seats;
     }
+
+    @Override
+    public String toString() {
+        return "Train [route=" + route + ", date=" + date + ", number=" + number + ", cost=" + cost + ", seats=" + seats
+                + "]";
+    }
     
 }

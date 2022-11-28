@@ -28,4 +28,10 @@ public class Route {
     public String getFinalTime() {
         return finalTime;
     }
+
+    @Override
+    public String toString() {
+        return "Route [startingStation=" + startingStation + ", startingTime=" + startingTime + ", finalStation="
+                + finalStation + ", finalTime=" + finalTime + "]";
+    }
 }

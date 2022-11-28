@@ -11,6 +11,7 @@ import org.junit.jupiter.api.*;
 
 import db.DBManager;
 import entities.Station;
+import entities.Train;
 
 public class DBManagerTest {
     private static final String CONNECTION_URL = "jdbc:derby:memory:testdb;create=true";
@@ -28,10 +29,10 @@ public class DBManagerTest {
     private static final String CREATE_ROUTE_TABLE = 
 			"CREATE TABLE route("
 			+ "	id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY," 
-			+ "	startingStation INT REFERENCES station(id) on delete cascade," 
-			+ "	startingTime TIME NOT NULL," 
-			+ "	finalStation INT REFERENCES station(id) on delete cascade,"
-			+ "	finalTime TIME NOT NULL" 
+			+ "	\"startingStation\" INT REFERENCES station(id) on delete cascade," 
+			+ "	\"startingTime\" TIME NOT NULL," 
+			+ "	\"finalStation\" INT REFERENCES station(id) on delete cascade,"
+			+ "	\"finalTime\" TIME NOT NULL" 
 			+ ")";
 
     private static final String CREATE_TRAIN_TABLE =
@@ -89,12 +90,14 @@ public class DBManagerTest {
 	}
 
     @Test
-    public void Test1() {
-        List<Station> stations = new ArrayList<>();
-    }
-
-    @Test
-    public void Test2() {
+    public void Test() {
+		try {
+			List<Train> trains = DBManager.getInstance().getAllTrains();
+			System.out.println(trains);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         assertEquals(1, 1);
     }
 }

@@ -1,10 +1,10 @@
 package entities;
 
 public class Station {
-    private String city;
     private String name;
+    private String city;
 
-    public Station(String city, String name) {
+    public Station(String name, String city) {
         this.city = city;
         this.name = name;
     }
@@ -15,5 +15,10 @@ public class Station {
 
     public String getName() {
         return name;
+    }
+
+    @Override
+    public String toString() {
+        return "Station [name=" + name + ", city=" + city + "]";
     }
 }
