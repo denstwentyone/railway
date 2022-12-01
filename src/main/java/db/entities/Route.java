@@ -1,4 +1,4 @@
-package entities;
+package db.entities;
 
 public class Route {
     private Station startingStation;

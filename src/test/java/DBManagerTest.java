@@ -10,10 +10,11 @@ import java.util.stream.*;
 import org.junit.jupiter.api.*;
 
 import db.DBManager;
-import entities.Station;
-import entities.Train;
+import db.entities.Station;
+import db.entities.Train;
 
 public class DBManagerTest {
+
     private static final String CONNECTION_URL = "jdbc:derby:memory:testdb;create=true";
     private static final String SHUTDOWN_URL = "jdbc:derby:;shutdown=true";
     private static final String APP_CONTENT = "connection.url=" + CONNECTION_URL;
@@ -74,7 +75,7 @@ public class DBManagerTest {
 	
 	@BeforeEach
 	void setUp() throws SQLException {
-		dbm = DBManager.getInstance();
+		dbm = DBManager.getInstance("derby");
 
 		con.createStatement().executeUpdate(CREATE_STATION_TABLE);
 		con.createStatement().executeUpdate(CREATE_ROUTE_TABLE);
@@ -92,7 +93,7 @@ public class DBManagerTest {
     @Test
     public void Test() {
 		try {
-			List<Train> trains = DBManager.getInstance().getAllTrains();
+			List<Train> trains = DBManager.getInstance("derby").getAllTrains();
 			System.out.println(trains);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

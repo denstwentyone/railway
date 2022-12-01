@@ -2,6 +2,7 @@ package servlets;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -11,7 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import db.DBManager;
-import entities.Train;
+import db.entities.Train;
+import db.postgres.PostgresDBManager;
 
 import javax.servlet.RequestDispatcher;
 
@@ -22,8 +24,12 @@ public class MainServlet extends HttpServlet{
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Train> trains;
         try {
-            trains = DBManager.getInstance().getAllTrains();
-            req.setAttribute("trains", trains);
+            trains = DBManager.getInstance("postgres").getAllTrains();
+            List<String> trainsStrings = new ArrayList<>();
+            for (Train t : trains) {
+                trainsStrings.add(t.toString());
+            }
+            req.setAttribute("trains", trainsStrings);
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("views/main.jsp");
             requestDispatcher.forward(req, resp);
         } catch (SQLException e) {
@@ -32,5 +38,12 @@ public class MainServlet extends HttpServlet{
             resp.getWriter().println("Error Code: " + e.getErrorCode());
         }
     }
-    
+    public static void main(String[] args) {
+        try {
+            System.out.println(PostgresDBManager.getInstance("postgres").getAllTrains());
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
 }

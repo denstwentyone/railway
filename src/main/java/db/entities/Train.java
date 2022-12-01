@@ -1,4 +1,4 @@
-package entities;
+package db.entities;
 
 public class Train {
     private Route route;

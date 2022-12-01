@@ -1,4 +1,4 @@
-package entities;
+package db.entities;
 
 public class Station {
     private String name;

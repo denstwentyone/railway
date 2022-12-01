@@ -1,11 +1,12 @@
+<%@ page import ="java.util.List"%>
 <html>
     <body>
         <ul>
             <%
-                List<Train> trains = (List<Train>) request.getAttribute("trains");
+                List<String> trains = (List<String>) request.getAttribute("trains");
 
-                for (Train train : trains) {
-                    out.println("<li>" + t + "</li>");
+                for (String train : trains) {
+                    out.println("<li>" + train + "</li>");
                 }
             %>
         </ul>

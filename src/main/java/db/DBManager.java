@@ -4,75 +4,79 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.*;
 
-import entities.Route;
-import entities.Station;
-import entities.Train;
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
 
-public class DBManager {
+import db.derby.DerbyDBManager;
+import db.entities.Route;
+import db.entities.Station;
+import db.entities.Train;
+import db.postgres.PostgresDBManager;
 
-    // private static Connection connection;
+public abstract class DBManager {
+
     private static DBManager instance;
     private static String URL;
+    private static HikariDataSource dataSource;
+    protected String driverClassName;
 
-    // private List<Train> trains;
-    // private List<Route> routes;
-    // private List<Station> stations;
+    /**
+     * @param driver Has to be one of "postgres" or "derby"
+     * @return Manager instance of chosen db
+     */
+    public static synchronized DBManager getInstance(String driver) {
+        if (instance == null) {
+            if (driver.equals("postgres")) {
+                instance = new PostgresDBManager();
+            }
+            else if (driver.equals("derby")) {
+                instance = new DerbyDBManager();
+            }
+            else {
+                throw new IllegalArgumentException("arg has to be one of \"postgres\" or \"derby\"");
+            }
+            try (InputStream input = new FileInputStream(
+                    "C:\\Users\\sulyt\\myprojects\\Railway ticket office\\railway\\app.properties")) {
 
+                final Properties prop = new Properties();
 
+                // load a properties file
+                prop.load(input);
 
-    {
-        try (InputStream input = new FileInputStream("C:\\Users\\sulyt\\myprojects\\Railway ticket office\\railway\\app.properties")) {
-    
-          final Properties prop = new Properties();
-    
-          // load a properties file
-          prop.load(input);
-    
-          // get the property value and print it out
-          URL = prop.getProperty("connection.url");
-          
-    
-        } catch (IOException ex) {
-          ex.printStackTrace();
+                // get the property value and print it out
+                URL = prop.getProperty("connection.url");
+                HikariConfig config = new HikariConfig();
+                if (driver.equals("postgres")) {
+                    config.setDriverClassName("org.postgresql.Driver");
+                }
+                config.setJdbcUrl(URL);
+                dataSource = new HikariDataSource(config);
+
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
         }
+        return instance;
     }
-
-    public static synchronized DBManager getInstance() {
-		if (instance == null) {
-			instance = new DBManager();
-		}
-		return instance;
-	}
-
-    // private DBManager() {
-    //     if (connection == null) {
-	// 		try {
-	// 			connection = DriverManager.getConnection(URL);
-	// 		} catch (SQLException e) {
-	// 			e.printStackTrace();
-	// 		}
-	// 	}
-    // }
 
     public List<Train> getAllTrains() throws SQLException {
         List<Train> result = new ArrayList<>();
-        try (Connection connection = DriverManager.getConnection(URL);
-			Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery(DBConstants.GET_ALL_TRAINS);) {
-                while (resultSet.next()) {
-                    mapTrain(result, resultSet);
-                }
-		}
-		catch (SQLException e) {
-			e.printStackTrace();
+        try (Connection connection = dataSource.getConnection();
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(DBConstants.GET_ALL_TRAINS);) {
+            
+            while (resultSet.next()) {
+                mapTrain(result, resultSet);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
             throw e;
-		}
+        } 
         return result;
     }
 
@@ -88,16 +92,41 @@ public class DBManager {
         int seats = resultSet.getInt("seats");
         int number = resultSet.getInt("id");
 
-
-        result.add(new Train(new Route(new Station(startingName, startingCity), 
-                                        startingTime, 
-                                        new Station(finalName, finalCity), 
-                                        finalTime), 
-                        date, number, cost, seats));
+        result.add(new Train(new Route(new Station(startingName, startingCity),
+                startingTime,
+                new Station(finalName, finalCity),
+                finalTime),
+                date, number, cost, seats));
     }
 
-    public List<Route> getAllRoutes() {
-        return null;
+    public List<Route> getAllRoutes() throws SQLException {
+        List<Route> result = new ArrayList<>();
+        try (Connection connection = dataSource.getConnection();
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(DBConstants.GET_ALL_ROUTES);) {
+            
+            while (resultSet.next()) {
+                mapRoute(result, resultSet);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw e;
+        } 
+        return result;
+    }
+
+    private void mapRoute(List<Route> result, ResultSet resultSet) throws SQLException {
+        String startingTime = resultSet.getString("startingTime");
+        String startingName = resultSet.getString("startingName");
+        String startingCity = resultSet.getString("startingCity");
+        String finalTime = resultSet.getString("finalTime");
+        String finalName = resultSet.getString("finalName");
+        String finalCity = resultSet.getString("finalCity");
+
+        result.add(new Route(new Station(startingName, startingCity), 
+                             startingTime, 
+                             new Station(finalName, finalCity), 
+                             finalTime));
     }
 
     public List<Station> getAllStations() {
@@ -109,18 +138,10 @@ public class DBManager {
     }
 
     public void addRoute(Route route) {
-        
+
     }
 
     public void addStation(Station station) {
 
-    }
-    public static void main(String[] args) {
-        try {
-            System.out.println(DBManager.getInstance().getAllTrains());
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
     }
 }

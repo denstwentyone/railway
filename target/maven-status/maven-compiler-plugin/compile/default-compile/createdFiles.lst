@@ -1,1 +1,6 @@
+db\entities\Train.class
+db\DBConstants.class
+db\entities\Station.class
+db\entities\Route.class
+db\DBManager.class
 servlets\MainServlet.class
