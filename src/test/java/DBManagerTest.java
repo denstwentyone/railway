@@ -75,7 +75,7 @@ public class DBManagerTest {
 	
 	@BeforeEach
 	void setUp() throws SQLException {
-		dbm = DBManager.getInstance("derby");
+		dbm = DBManager.getDManager("derby");
 
 		con.createStatement().executeUpdate(CREATE_STATION_TABLE);
 		con.createStatement().executeUpdate(CREATE_ROUTE_TABLE);
@@ -93,7 +93,7 @@ public class DBManagerTest {
     @Test
     public void Test() {
 		try {
-			List<Train> trains = DBManager.getInstance("derby").getAllTrains();
+			List<Train> trains = dbm.getAllTrains();
 			System.out.println(trains);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

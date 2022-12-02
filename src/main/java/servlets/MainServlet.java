@@ -17,20 +17,20 @@ import db.postgres.PostgresDBManager;
 
 import javax.servlet.RequestDispatcher;
 
-@WebServlet("/main")
+@WebServlet("")
 public class MainServlet extends HttpServlet{
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Train> trains;
         try {
-            trains = DBManager.getInstance("postgres").getAllTrains();
+            trains = DBManager.getDManager("postgres").getAllTrains();
             List<String> trainsStrings = new ArrayList<>();
             for (Train t : trains) {
                 trainsStrings.add(t.toString());
             }
             req.setAttribute("trains", trainsStrings);
-            RequestDispatcher requestDispatcher = req.getRequestDispatcher("views/main.jsp");
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher("index.jsp");
             requestDispatcher.forward(req, resp);
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -40,7 +40,7 @@ public class MainServlet extends HttpServlet{
     }
     public static void main(String[] args) {
         try {
-            System.out.println(PostgresDBManager.getInstance("postgres").getAllTrains());
+            System.out.println(DBManager.getDManager("postgres").getAllTrains());
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

@@ -20,48 +20,48 @@ import db.postgres.PostgresDBManager;
 
 public abstract class DBManager {
 
-    private static DBManager instance;
+    private static DBManager manager;
     private static String URL;
     private static HikariDataSource dataSource;
     protected String driverClassName;
 
     /**
-     * @param driver Has to be one of "postgres" or "derby"
+     * @param driverName Has to be one of "postgres" or "derby"
      * @return Manager instance of chosen db
      */
-    public static synchronized DBManager getInstance(String driver) {
-        if (instance == null) {
-            if (driver.equals("postgres")) {
-                instance = new PostgresDBManager();
-            }
-            else if (driver.equals("derby")) {
-                instance = new DerbyDBManager();
-            }
-            else {
-                throw new IllegalArgumentException("arg has to be one of \"postgres\" or \"derby\"");
-            }
-            try (InputStream input = new FileInputStream(
-                    "C:\\Users\\sulyt\\myprojects\\Railway ticket office\\railway\\app.properties")) {
-
-                final Properties prop = new Properties();
-
-                // load a properties file
-                prop.load(input);
-
-                // get the property value and print it out
-                URL = prop.getProperty("connection.url");
-                HikariConfig config = new HikariConfig();
-                if (driver.equals("postgres")) {
-                    config.setDriverClassName("org.postgresql.Driver");
-                }
-                config.setJdbcUrl(URL);
-                dataSource = new HikariDataSource(config);
-
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
+    public static synchronized DBManager getDManager(String driverName) {
+        
+        if (driverName.equals("postgres")) {
+            manager = PostgresDBManager.getInstance();
         }
-        return instance;
+        else if (driverName.equals("derby")) {
+            manager = DerbyDBManager.getInstance();
+        }
+        else {
+            throw new IllegalArgumentException("argument has to be one of \"postgres\" or \"derby\"");
+        }
+        try (InputStream input = new FileInputStream(
+                "C:\\Users\\sulyt\\myprojects\\Railway ticket office\\railway\\app.properties")) {
+
+            final Properties prop = new Properties();
+
+            // load a properties file
+            prop.load(input);
+
+            // get the property value and print it out
+            URL = prop.getProperty("connection.url");
+            HikariConfig config = new HikariConfig();
+            if (driverName.equals("postgres")) {
+                config.setDriverClassName("org.postgresql.Driver");
+            }
+            config.setJdbcUrl(URL);
+            dataSource = new HikariDataSource(config);
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        
+        return manager;
     }
 
     public List<Train> getAllTrains() throws SQLException {
