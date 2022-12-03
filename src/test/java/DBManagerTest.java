@@ -10,6 +10,7 @@ import java.util.stream.*;
 import org.junit.jupiter.api.*;
 
 import db.DBManager;
+import db.derby.DerbyDBManager;
 import db.entities.Station;
 import db.entities.Train;
 
@@ -75,7 +76,9 @@ public class DBManagerTest {
 	
 	@BeforeEach
 	void setUp() throws SQLException {
-		dbm = DBManager.getDManager("derby");
+		// dbm = DBManager.getDManager("derby");
+		dbm = DerbyDBManager.getInstance();
+
 
 		con.createStatement().executeUpdate(CREATE_STATION_TABLE);
 		con.createStatement().executeUpdate(CREATE_ROUTE_TABLE);

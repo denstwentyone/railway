@@ -1,15 +1,10 @@
-<%@ page import ="java.util.List"%>
 <html>
     <body>
-        <ul>
-            <%
-                List<String> trains = (List<String>) request.getAttribute("trains");
-
-                for (String train : trains) {
-                    out.println("<li>" + train + "</li>");
-                }
-            %>
-        </ul>
+        <form action="" method="post">
+            <p>Email</p> <input type="email" /> <br>
+            <p>Password</p> <input type="password" /> <br>
+            <input type="submit" value="sign up">
+        </form>
         <form action="/railway" method="get">
             <input type="submit" value="go back">
         </form>

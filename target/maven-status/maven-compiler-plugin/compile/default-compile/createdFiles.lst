@@ -1,7 +1,6 @@
 db\entities\Train.class
-servlets\SignUpServlet.class
 db\DBConstants.class
+servlets\views\LogInServlet.class
 db\entities\Station.class
 db\entities\Route.class
-db\DBManager.class
-servlets\MainServlet.class
+servlets\views\SignUpServlet.class

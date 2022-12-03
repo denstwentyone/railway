@@ -4,15 +4,16 @@ import db.DBManager;
 
 public class PostgresDBManager extends DBManager {
     
-    private static PostgresDBManager instance;
+    private static DBManager instance;
 
-    public PostgresDBManager() {
-        super.driverClassName = "org.postgresql.Driver";
+    private PostgresDBManager() {
+        
     }
 
-    public static synchronized PostgresDBManager getInstance() {
+    public static synchronized DBManager getInstance() {
         if (instance == null) {
             instance = new PostgresDBManager();
+            configDManager("postgres");
         }
         return instance;
     }

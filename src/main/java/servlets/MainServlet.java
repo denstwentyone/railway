@@ -24,7 +24,8 @@ public class MainServlet extends HttpServlet{
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Train> trains;
         try {
-            trains = DBManager.getDManager("postgres").getAllTrains();
+            // trains = DBManager.getDManager("postgres").getAllTrains();
+            trains = PostgresDBManager.getInstance().getAllTrains();
             List<String> trainsStrings = new ArrayList<>();
             for (Train t : trains) {
                 trainsStrings.add(t.toString());
@@ -38,12 +39,5 @@ public class MainServlet extends HttpServlet{
             resp.getWriter().println("Error Code: " + e.getErrorCode());
         }
     }
-    public static void main(String[] args) {
-        try {
-            System.out.println(DBManager.getDManager("postgres").getAllTrains());
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-    }
+
 }

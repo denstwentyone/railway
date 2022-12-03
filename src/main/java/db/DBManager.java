@@ -12,34 +12,27 @@ import java.util.*;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
-import db.derby.DerbyDBManager;
 import db.entities.Route;
 import db.entities.Station;
 import db.entities.Train;
-import db.postgres.PostgresDBManager;
 
 public abstract class DBManager {
 
-    private static DBManager manager;
-    private static String URL;
     private static HikariDataSource dataSource;
-    protected String driverClassName;
+
+    protected DBManager() {
+    }
 
     /**
      * @param driverName Has to be one of "postgres" or "derby"
      * @return Manager instance of chosen db
      */
-    public static synchronized DBManager getDManager(String driverName) {
+    protected static synchronized void configDManager(String driverName) {
         
-        if (driverName.equals("postgres")) {
-            manager = PostgresDBManager.getInstance();
-        }
-        else if (driverName.equals("derby")) {
-            manager = DerbyDBManager.getInstance();
-        }
-        else {
+        if (driverName != "derby" && driverName != "postgres") {
             throw new IllegalArgumentException("argument has to be one of \"postgres\" or \"derby\"");
         }
+
         try (InputStream input = new FileInputStream(
                 "C:\\Users\\sulyt\\myprojects\\Railway ticket office\\railway\\app.properties")) {
 
@@ -49,7 +42,7 @@ public abstract class DBManager {
             prop.load(input);
 
             // get the property value and print it out
-            URL = prop.getProperty("connection.url");
+            String URL = prop.getProperty("connection.url");
             HikariConfig config = new HikariConfig();
             if (driverName.equals("postgres")) {
                 config.setDriverClassName("org.postgresql.Driver");
@@ -60,8 +53,6 @@ public abstract class DBManager {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-        
-        return manager;
     }
 
     public List<Train> getAllTrains() throws SQLException {
@@ -73,6 +64,7 @@ public abstract class DBManager {
             while (resultSet.next()) {
                 mapTrain(result, resultSet);
             }
+            
         } catch (SQLException e) {
             e.printStackTrace();
             throw e;
