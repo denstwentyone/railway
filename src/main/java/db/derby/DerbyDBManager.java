@@ -2,7 +2,7 @@ package db.derby;
 
 import db.DBManager;
 
-public class DerbyDBManager extends DBManager {
+public class DerbyDBManager extends DBManager{
 
     private static DBManager instance;
 

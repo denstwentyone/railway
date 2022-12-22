@@ -96,9 +96,13 @@ public class DBManagerTest {
     @Test
     public void Test() {
 		try {
-			List<Train> trains = dbm.getAllTrains();
-			System.out.println(trains);
-		} catch (SQLException e) {
+			List<Station> st = new ArrayList<>();
+			st.add(new Station("test", "test"));
+			for (Station station : st) {
+				dbm.addStation(station.getName(), station.getCity());
+			}
+			assertEquals(st, dbm.getAllStations());
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

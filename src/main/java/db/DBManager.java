@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -12,11 +13,13 @@ import java.util.*;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
+import db.dao.TrainDAO;
+import db.dao.UserDAO;
 import db.entities.Route;
 import db.entities.Station;
 import db.entities.Train;
 
-public abstract class DBManager {
+public abstract class DBManager implements TrainDAO, UserDAO {
 
     private static HikariDataSource dataSource;
 
@@ -121,19 +124,73 @@ public abstract class DBManager {
                              finalTime));
     }
 
-    public List<Station> getAllStations() {
+    public List<Station> getAllStations() throws SQLException {
+        List<Station> result = new ArrayList<>();
+        try (Connection connection = dataSource.getConnection();
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(DBConstants.GET_ALL_STATIONS);) {
+            
+            while (resultSet.next()) {
+                result.add(new Station(resultSet.getString("name"), resultSet.getString("city")));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw e;
+        } 
+        return result;
+    }
+
+    public List<Train> getTrainsByCity(String city) throws SQLException {
+        // TODO Auto-generated method stub
         return null;
     }
 
-    public void addTrain(Train train) {
-
+    public long addTrain(Train train) throws Exception {
+        return 0;
     }
 
-    public void addRoute(Route route) {
-
+    public long addRoute(Route route) throws Exception {
+        return 0;
     }
 
-    public void addStation(Station station) {
-
+    public long addStation(String name, String city) throws Exception {
+        try (Connection connection = dataSource.getConnection();
+            PreparedStatement statement = connection.prepareStatement(DBConstants.INSERT_STATION);) {
+                int k = 0;
+                statement.setString(++k, name);
+                statement.setString(++k, city);
+                statement.executeUpdate();
+                statement.getGeneratedKeys();
+        
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+        return 0;
     }
+
+    @Override
+    public long signUp(String email, String password) throws SQLException {
+        try (Connection connection = dataSource.getConnection();
+            PreparedStatement statement = connection.prepareStatement(DBConstants.INSERT_USER);) {
+                int k = 0;
+                statement.setString(++k, email);
+                statement.setString(++k, password);
+                statement.executeUpdate();
+                statement.getGeneratedKeys();
+
+                return 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
+
+    @Override
+    public boolean logIn(String email, String password) throws SQLException {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    
 }

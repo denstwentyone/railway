@@ -1,6 +1,7 @@
 package db.entities;
 
 public class Train {
+    private long id;
     private Route route;
     private String date;
     private int number;
@@ -18,6 +19,8 @@ public class Train {
     public String getTravelTime() {
         return route.getFinalTime() + " - " + route.getStartingTime();
     }
+
+    
 
     // TODO
     // public int reserveSeats(int amount) {
@@ -50,5 +53,57 @@ public class Train {
         return "Train [route=" + route + ", date=" + date + ", number=" + number + ", cost=" + cost + ", seats=" + seats
                 + "]";
     }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((route == null) ? 0 : route.hashCode());
+        result = prime * result + ((date == null) ? 0 : date.hashCode());
+        result = prime * result + number;
+        result = prime * result + ((cost == null) ? 0 : cost.hashCode());
+        result = prime * result + seats;
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Train other = (Train) obj;
+        if (route == null) {
+            if (other.route != null)
+                return false;
+        } else if (!route.equals(other.route))
+            return false;
+        if (date == null) {
+            if (other.date != null)
+                return false;
+        } else if (!date.equals(other.date))
+            return false;
+        if (number != other.number)
+            return false;
+        if (cost == null) {
+            if (other.cost != null)
+                return false;
+        } else if (!cost.equals(other.cost))
+            return false;
+        if (seats != other.seats)
+            return false;
+        return true;
+    }
+    
     
 }

@@ -18,4 +18,15 @@ public abstract class DBConstants {
                                         + "FROM route r "
                                         + "join station s1 on s1.id = r.\"startingStation\""
                                         + "join station s2 on s2.id = r.\"finalStation\"";
+
+    public static String GET_ALL_STATIONS = "SELECT * FROM station";
+
+    public static String INSERT_STATION = "INSERT INTO station(name, city) VALUES (?, ?)";
+
+    public static String INSERT_ROUTE = "INSERT INTO route(\"startingStation\", \"startingTime\", \"finalStation\", \"finalTime\") VALUES (?, ?, ?, ?)";
+
+    public static String INSERT_TRAIN = "INSERT INTO train(route, date, cost, seats) VALUES (?, ?, ?, ?)";
+
+    public static String INSERT_USER = "INSERT INTO \"user\"(email, password) VALUES (?, ?)";
+
 }
