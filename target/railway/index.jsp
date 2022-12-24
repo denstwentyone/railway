@@ -2,22 +2,13 @@
 <%@ page import ="java.util.List"%>
 <html>
     <body>
-        <form action="/railway/login" method="get">
+        <form action="/railway/login?action=log_in" method="get">
             <input type="submit" value="log in">
         </form>
-        <form action="/railway/signup" method="get">
+        <form action="/railway?action=sign_up" method="get">
             <input type="submit" value="sign up">
-        </form>
         <hr>
-        <ul>
-            <%
-                List<String> trains = (List<String>) request.getAttribute("trains");
-
-                for (String train : trains) {
-                    out.println("<li>" + train + "</li>");
-                }
-            %>
-        </ul>
+        <h1>RAILWAY TICKET OFFICE, WELCOMES YOU!</h1>
     </body>
 
 </html>

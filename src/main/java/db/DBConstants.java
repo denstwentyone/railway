@@ -29,4 +29,6 @@ public abstract class DBConstants {
 
     public static String INSERT_USER = "INSERT INTO \"user\"(email, password) VALUES (?, ?)";
 
+    public static String FIND_USER = "SELECT * FROM \"user\" WHERE email = ? AND password = ?";
+
 }

@@ -9,8 +9,8 @@ import java.util.stream.*;
 
 import org.junit.jupiter.api.*;
 
-import db.DBManager;
-import db.derby.DerbyDBManager;
+import db.DAOFactory;
+import db.derby.DerbyDAO;
 import db.entities.Station;
 import db.entities.Train;
 
@@ -72,12 +72,12 @@ public class DBManagerTest {
 		}
 	}
 
-	private DBManager dbm;
+	private DAOFactory dbm;
 	
 	@BeforeEach
 	void setUp() throws SQLException {
 		// dbm = DBManager.getDManager("derby");
-		dbm = DerbyDBManager.getInstance();
+		dbm = DerbyDAO.getInstance();
 
 
 		con.createStatement().executeUpdate(CREATE_STATION_TABLE);
