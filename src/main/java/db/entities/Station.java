@@ -1,6 +1,8 @@
 package db.entities;
 
-public class Station {
+import java.io.Serializable;
+
+public class Station implements Serializable {
     private long id;
     private String name;
     private String city;
@@ -56,6 +58,10 @@ public class Station {
         } else if (!city.equals(other.city))
             return false;
         return true;
+    }
+
+    public long getId() {
+        return id;
     }
 
     

@@ -1,6 +1,8 @@
 package db.entities;
 
-public class Route {
+import java.io.Serializable;
+
+public class Route implements Serializable {
     private long id;
     private Station startingStation;
     private String startingTime;
@@ -81,6 +83,10 @@ public class Route {
         } else if (!finalTime.equals(other.finalTime))
             return false;
         return true;
+    }
+
+    public long getId() {
+        return id;
     }
 
     

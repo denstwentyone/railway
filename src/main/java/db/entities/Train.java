@@ -1,6 +1,8 @@
 package db.entities;
 
-public class Train {
+import java.io.Serializable;
+
+public class Train implements Serializable {
     private long id;
     private Route route;
     private String date;

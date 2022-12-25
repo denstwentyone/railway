@@ -5,10 +5,12 @@ c:\Users\sulyt\myprojects\Railway ticket office\railway\src\main\java\actions\Ac
 c:\Users\sulyt\myprojects\Railway ticket office\railway\src\main\java\actions\implementation\DefaultAction.java
 c:\Users\sulyt\myprojects\Railway ticket office\railway\src\main\java\db\derby\DerbyDAO.java
 c:\Users\sulyt\myprojects\Railway ticket office\railway\src\main\java\db\dao\TrainDAO.java
+c:\Users\sulyt\myprojects\Railway ticket office\railway\src\main\java\actions\implementation\SignUpAction.java
 c:\Users\sulyt\myprojects\Railway ticket office\railway\src\main\java\db\entities\Route.java
 c:\Users\sulyt\myprojects\Railway ticket office\railway\src\main\java\controller\Controller.java
 c:\Users\sulyt\myprojects\Railway ticket office\railway\src\main\java\db\DAOFactory.java
 c:\Users\sulyt\myprojects\Railway ticket office\railway\src\main\java\db\postgres\PostgresDAO.java
+c:\Users\sulyt\myprojects\Railway ticket office\railway\src\main\java\actions\implementation\LogOutAction.java
 c:\Users\sulyt\myprojects\Railway ticket office\railway\src\main\java\db\entities\Station.java
 c:\Users\sulyt\myprojects\Railway ticket office\railway\src\main\java\actions\Action.java
 c:\Users\sulyt\myprojects\Railway ticket office\railway\src\main\java\db\dao\UserDAO.java

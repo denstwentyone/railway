@@ -5,6 +5,8 @@ import java.util.Map;
 
 import actions.implementation.DefaultAction;
 import actions.implementation.LogInAction;
+import actions.implementation.LogOutAction;
+import actions.implementation.SignUpAction;
 
 public final class ActionFactory {
     
@@ -13,7 +15,11 @@ public final class ActionFactory {
 
     static {
         // ACTION_MAP.put("default",  new LogInAction());
-        ACTION_MAP.put("log_in",  new LogInAction());
+        ACTION_MAP.put("login",  new LogInAction());
+        ACTION_MAP.put("logout",  new LogOutAction());
+        ACTION_MAP.put("signup",  new SignUpAction());
+
+
     }
 
     private ActionFactory() {}

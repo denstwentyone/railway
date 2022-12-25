@@ -21,20 +21,26 @@ public class LogInAction implements Action {
     }
 
     private String execueGet(HttpServletRequest request) {
-        return "views/login.jsp";
+        return "login.jsp";
     }
 
     private String execuePost(HttpServletRequest request) {
         String email = (String) request.getParameter("email");
         String password = (String) request.getParameter("password");
+        System.out.println("post");
         try {
             if (PostgresDAO.getInstance().logIn(email, password)) {
+                
                 request.getSession().setAttribute("user", email);
+                System.out.println(email);
+
                 return "index.jsp";
             }
             else {
                 request.getSession().setAttribute("error", "no such user");
-                return "views/errorpage.jsp";
+                System.out.println("no such user");
+
+                return "errorpage.jsp";
             }
         } catch (SQLException e) {
             // TODO Auto-generated catch block
