@@ -1,19 +1,18 @@
 package db.postgres;
 
-import db.DAOFactory;
+import db.AbstractDAO;
 
-public class PostgresDAO extends DAOFactory {
+public class PostgresDAO extends AbstractDAO {
     
-    private static DAOFactory instance;
+    private static AbstractDAO instance;
 
     private PostgresDAO() {
-        
+        configDManager("postgres");
     }
 
-    public static synchronized DAOFactory getInstance() {
+    public static synchronized AbstractDAO getInstance() {
         if (instance == null) {
             instance = new PostgresDAO();
-            configDManager("postgres");
         }
         return instance;
     }

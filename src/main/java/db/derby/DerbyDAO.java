@@ -1,20 +1,21 @@
 package db.derby;
 
-import db.DAOFactory;
+import db.AbstractDAO;
 
-public class DerbyDAO extends DAOFactory{
+public class DerbyDAO extends AbstractDAO{
 
-    private static DAOFactory instance;
+    private static AbstractDAO instance;
 
     private DerbyDAO() {
-        
+        configDManager("derby");
     }
 
-    public static synchronized DAOFactory getInstance() {
+    public static synchronized AbstractDAO getInstance() {
         if (instance == null) {
             instance = new DerbyDAO();
-            configDManager("derby");
         }
         return instance;
     }
+
+
 }

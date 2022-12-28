@@ -11,6 +11,21 @@ public class SignUpAction implements Action {
 
     @Override
     public String execute(HttpServletRequest request) {
+
+        if (request.getMethod().equals("POST")) {
+            return execuePost(request);
+        }
+        else {
+            return execueGet(request);
+        }
+
+    }
+
+    private String execueGet(HttpServletRequest request) {
+        return "signup.jsp";
+    }
+
+    private String execuePost(HttpServletRequest request) {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         try {
@@ -22,7 +37,7 @@ public class SignUpAction implements Action {
 
                 return "index.jsp";
             }
-            return "login.jsp";
+            return "signup.jsp";
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

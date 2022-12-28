@@ -7,7 +7,7 @@ import java.util.*;
 
 import org.junit.jupiter.api.*;
 
-import db.DAOFactory;
+import db.AbstractDAO;
 import db.derby.DerbyDAO;
 import db.entities.Station;
 
@@ -69,7 +69,7 @@ public class DAOTest {
 		}
 	}
 
-	private DAOFactory dbm;
+	private AbstractDAO dbm;
 	
 	@BeforeEach
 	void setUp() throws SQLException {

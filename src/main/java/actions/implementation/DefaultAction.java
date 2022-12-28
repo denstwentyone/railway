@@ -17,7 +17,7 @@ public class DefaultAction implements Action {
         try {
             List<Train> trains = new ArrayList<>();
             trains = PostgresDAO.getInstance().getAllTrains();
-            request.setAttribute("trains", trains);
+            request.getSession().setAttribute("trains", trains);
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
