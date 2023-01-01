@@ -8,14 +8,12 @@ public class Train implements Serializable {
     private String date;
     private int number;
     private Double cost;
-    private int seats;
     
-    public Train(Route route, String date, int number, Double cost, int seats) {
+    public Train(Route route, String date, int number, Double cost) {
         this.route = route;
         this.date = date;
         this.number = number;
         this.cost = cost;
-        this.seats = seats;
     }
 
     public String getTravelTime() {
@@ -46,13 +44,9 @@ public class Train implements Serializable {
         return cost;
     }
 
-    public int getSeats() {
-        return seats;
-    }
-
     @Override
     public String toString() {
-        return "Train [route=" + route + ", date=" + date + ", number=" + number + ", cost=" + cost + ", seats=" + seats
+        return "Train [route=" + route + ", date=" + date + ", number=" + number + ", cost=" + cost
                 + "]";
     }
 
@@ -72,7 +66,6 @@ public class Train implements Serializable {
         result = prime * result + ((date == null) ? 0 : date.hashCode());
         result = prime * result + number;
         result = prime * result + ((cost == null) ? 0 : cost.hashCode());
-        result = prime * result + seats;
         return result;
     }
 
@@ -101,8 +94,6 @@ public class Train implements Serializable {
             if (other.cost != null)
                 return false;
         } else if (!cost.equals(other.cost))
-            return false;
-        if (seats != other.seats)
             return false;
         return true;
     }

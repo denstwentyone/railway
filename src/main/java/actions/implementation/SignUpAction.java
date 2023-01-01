@@ -1,11 +1,8 @@
 package actions.implementation;
 
-import java.sql.SQLException;
-
 import javax.servlet.http.HttpServletRequest;
 
 import actions.Action;
-import db.postgres.PostgresDAO;
 
 public class SignUpAction implements Action {
 
@@ -29,19 +26,18 @@ public class SignUpAction implements Action {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         try {
-            PostgresDAO.getInstance().signUp(email, password);
-            if (PostgresDAO.getInstance().logIn(email, password)) {
-                
-                request.getSession().setAttribute("user", email);
-                System.out.println(email);
-
-                return "index.jsp";
+            if (userService.signUp(email, password)) {
+                LogInAction login = new LogInAction();
+                return login.execute(request);
             }
-            return "signup.jsp";
-        } catch (SQLException e) {
+            else {
+                request.getSession().setAttribute("error", "invalid input");
+                return "errorpage.jsp";
+            }
+        } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-            request.getSession().setAttribute("error", "invalid input");
+            request.getSession().setAttribute("error", e.getMessage());
             return "errorpage.jsp";
         }
     }

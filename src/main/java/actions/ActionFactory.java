@@ -7,6 +7,7 @@ import actions.implementation.ChangeLocaleAction;
 import actions.implementation.DefaultAction;
 import actions.implementation.LogInAction;
 import actions.implementation.LogOutAction;
+import actions.implementation.OrderAction;
 import actions.implementation.SignUpAction;
 
 public final class ActionFactory {
@@ -19,6 +20,7 @@ public final class ActionFactory {
         ACTION_MAP.put("logout",  new LogOutAction());
         ACTION_MAP.put("signup",  new SignUpAction());
         ACTION_MAP.put("changelocale",  new ChangeLocaleAction());
+        ACTION_MAP.put("order",  new OrderAction());
     }
 
     private ActionFactory() {}

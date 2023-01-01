@@ -1,5 +1,8 @@
 c:\Users\sulyt\myprojects\Railway ticket office\railway\src\main\java\actions\implementation\LogInAction.java
+c:\Users\sulyt\myprojects\Railway ticket office\railway\src\main\java\services\TrainService.java
 c:\Users\sulyt\myprojects\Railway ticket office\railway\src\main\java\db\entities\Train.java
+c:\Users\sulyt\myprojects\Railway ticket office\railway\src\main\java\services\Service.java
+c:\Users\sulyt\myprojects\Railway ticket office\railway\src\main\java\services\UserService.java
 c:\Users\sulyt\myprojects\Railway ticket office\railway\src\main\java\actions\implementation\ChangeLocaleAction.java
 c:\Users\sulyt\myprojects\Railway ticket office\railway\src\main\java\db\DBConstants.java
 c:\Users\sulyt\myprojects\Railway ticket office\railway\src\main\java\actions\ActionFactory.java
@@ -10,9 +13,12 @@ c:\Users\sulyt\myprojects\Railway ticket office\railway\src\main\java\db\dao\Tra
 c:\Users\sulyt\myprojects\Railway ticket office\railway\src\main\java\actions\implementation\SignUpAction.java
 c:\Users\sulyt\myprojects\Railway ticket office\railway\src\main\java\db\entities\Route.java
 c:\Users\sulyt\myprojects\Railway ticket office\railway\src\main\java\controller\Controller.java
+c:\Users\sulyt\myprojects\Railway ticket office\railway\src\main\java\actions\implementation\OrderAction.java
 c:\Users\sulyt\myprojects\Railway ticket office\railway\src\main\java\db\postgres\PostgresDAO.java
 c:\Users\sulyt\myprojects\Railway ticket office\railway\src\main\java\actions\implementation\LogOutAction.java
 c:\Users\sulyt\myprojects\Railway ticket office\railway\src\main\java\db\entities\Station.java
+c:\Users\sulyt\myprojects\Railway ticket office\railway\src\main\java\db\entities\Ticket.java
 c:\Users\sulyt\myprojects\Railway ticket office\railway\src\main\java\actions\Action.java
 c:\Users\sulyt\myprojects\Railway ticket office\railway\src\main\java\db\AbstractDAO.java
 c:\Users\sulyt\myprojects\Railway ticket office\railway\src\main\java\db\dao\UserDAO.java
+c:\Users\sulyt\myprojects\Railway ticket office\railway\src\main\java\db\entities\User.java

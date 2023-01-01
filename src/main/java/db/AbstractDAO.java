@@ -15,9 +15,11 @@ import com.zaxxer.hikari.HikariDataSource;
 
 import db.dao.TrainDAO;
 import db.dao.UserDAO;
+import db.entities.Ticket;
 import db.entities.Route;
 import db.entities.Station;
 import db.entities.Train;
+import db.entities.User;
 
 public abstract class AbstractDAO implements TrainDAO, UserDAO {
 
@@ -84,14 +86,13 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
         String finalCity = resultSet.getString("finalCity");
         String date = resultSet.getString("date");
         Double cost = resultSet.getDouble("cost");
-        int seats = resultSet.getInt("seats");
         int number = resultSet.getInt("id");
 
         result.add(new Train(new Route(new Station(startingName, startingCity),
                 startingTime,
                 new Station(finalName, finalCity),
                 finalTime),
-                date, number, cost, seats));
+                date, number, cost));
     }
 
     public List<Route> getAllRoutes() throws SQLException {
@@ -161,44 +162,102 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
                 statement.setString(++k, city);
                 statement.executeUpdate();
                 statement.getGeneratedKeys();
-        
+                ResultSet keys = statement.getGeneratedKeys();
+                if (keys.next()) {
+                    return keys.getLong("id");
+                }
+                return 0;
         } catch (Exception e) {
             e.printStackTrace();
             throw e;
         }
-        return 0;
     }
 
     @Override
     public long signUp(String email, String password) throws SQLException {
+        System.out.println("dao signup");
+
         try (Connection connection = dataSource.getConnection();
-            PreparedStatement statement = connection.prepareStatement(DBConstants.INSERT_USER);) {
+            PreparedStatement statement = connection.prepareStatement(DBConstants.INSERT_USER, Statement.RETURN_GENERATED_KEYS);) {
                 int k = 0;
                 statement.setString(++k, email);
                 statement.setString(++k, password);
                 statement.executeUpdate();
-                statement.getGeneratedKeys();
-
+                ResultSet keys = statement.getGeneratedKeys();
+                if (keys.next()) {
+                    long id = keys.getLong(1);
+                    return id;
+                }
                 return 0;
         } catch (Exception e) {
             e.printStackTrace();
-            return 0;
+            throw e;
         }
     }
 
     @Override
-    public boolean logIn(String email, String password) throws SQLException {
+    public long logIn(String email, String password) throws SQLException {
+        System.out.println("dao login");
+
         try (Connection connection = dataSource.getConnection();
             PreparedStatement statement = connection.prepareStatement(DBConstants.FIND_USER);) {
                 int k = 0;
                 statement.setString(++k, email);
                 statement.setString(++k, password);
-                return statement.executeQuery().next();
+                ResultSet resultSet = statement.executeQuery();
+                if (resultSet.next()) {
+                    long id = resultSet.getLong("id");
+                    System.out.println(id);
+                    return id;
+                }
+                return 0;
         } catch (Exception e) {
             e.printStackTrace();
-            return false;
+            throw e;
         }
     }
 
+    @Override
+    public Ticket addTicket(long trainId, long userId) throws Exception {
+        Ticket result = null;
+        try (Connection connection = dataSource.getConnection();
+            PreparedStatement statement = connection.prepareStatement(DBConstants.INSERT_TICKET, Statement.RETURN_GENERATED_KEYS);) {
+                int k = 0;
+                statement.setLong(++k, trainId);
+                statement.setLong(++k, userId);
+                statement.executeUpdate();
+                statement.getGeneratedKeys();
+                ResultSet keys = statement.getGeneratedKeys();
+                System.out.println("colomns:"+keys.getMetaData().getColumnCount());
+                if (keys.next()) {
+                    result = new Ticket(keys.getLong("train"), keys.getLong("\"user\""));
+                    return result;
+                }
+                return result;
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    @Override
+    public User getUser(String email) throws SQLException {
+        User result = null;
+        try (Connection connection = dataSource.getConnection();
+        PreparedStatement statement = connection.prepareStatement(DBConstants.FIND_USER_BY_EMAIL);) {
+
+            statement.setString(0, email);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                result = new User(resultSet.getLong("id"), 
+                                    resultSet.getString("email"), 
+                                    resultSet.getString("password"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw e;
+        } 
+        return result;
+    }
     
 }

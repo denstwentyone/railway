@@ -5,7 +5,6 @@ import java.sql.SQLException;
 import javax.servlet.http.HttpServletRequest;
 
 import actions.Action;
-import db.postgres.PostgresDAO;
 
 public class LogInAction implements Action {
 
@@ -27,26 +26,21 @@ public class LogInAction implements Action {
     private String execuePost(HttpServletRequest request) {
         String email = (String) request.getParameter("email");
         String password = (String) request.getParameter("password");
-        System.out.println("post");
         try {
-            if (PostgresDAO.getInstance().logIn(email, password)) {
-                
+            if (userService.login(email, password)) {
                 request.getSession().setAttribute("user", email);
-                System.out.println(email);
-
                 return "index.jsp";
             }
             else {
                 request.getSession().setAttribute("error", "no such user");
-                System.out.println("no such user");
-
                 return "errorpage.jsp";
             }
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
+            request.getSession().setAttribute("error", e.getMessage());
+            return "errorpage.jsp";
         }
-        return "index.jsp";
     }
     
 }

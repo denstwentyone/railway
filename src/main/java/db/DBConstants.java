@@ -7,7 +7,7 @@ public abstract class DBConstants {
 
     public static String GET_ALL_TRAINS = "SELECT r.\"startingTime\", ss.name startingName, ss.city startingCity, " +
                                             "r.\"finalTime\", sf.name finalName, sf.city finalCity, " + 
-                                            "t.date, t.cost, t.seats, t.id " + 
+                                            "t.date, t.cost, t.id " + 
                                             "FROM train t " + 
                                             "join route r on t.route = r.id " + 
                                             "join station ss on ss.id = r.\"startingStation\" " + 
@@ -31,4 +31,7 @@ public abstract class DBConstants {
 
     public static String FIND_USER = "SELECT * FROM \"user\" WHERE email = ? AND password = ?";
 
+    public static String FIND_USER_BY_EMAIL = "SELECT * FROM \"user\" WHERE email = ?";
+
+    public static String INSERT_TICKET = "  insert into ticket (train, \"user\") values (?, ?)";
 }

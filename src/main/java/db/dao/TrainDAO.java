@@ -5,6 +5,7 @@ import java.util.List;
 
 import db.entities.Route;
 import db.entities.Station;
+import db.entities.Ticket;
 import db.entities.Train;
 
 public interface TrainDAO {
@@ -22,4 +23,6 @@ public interface TrainDAO {
     public long addRoute(Route route) throws Exception;
 
     public long addStation(String name, String city) throws Exception;
+
+    public Ticket addTicket(long trainId, long userId) throws Exception;
 }

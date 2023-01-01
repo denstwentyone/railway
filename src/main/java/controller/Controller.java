@@ -24,8 +24,8 @@ public class Controller extends HttpServlet {
     
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher(process(req)).forward(req, resp);
-        // resp.sendRedirect(process(req));
+        // req.getRequestDispatcher(process(req)).forward(req, resp);
+        resp.sendRedirect(process(req));
     }
     
     private String process(HttpServletRequest req) {
