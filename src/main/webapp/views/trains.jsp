@@ -5,7 +5,7 @@
 <c:forEach var="train" items="${trains}">
     <form action="controller?action=order" method="post"> 
         <label for="${train.getNumber()}">${train.toString()}</label>
-        <c:if test = "${user != null}">
+        <c:if test = "${role == 'customer'}">
             <input type="hidden" name="trainid" value="${train.getNumber()}">
             <input type="submit" value="order">
         </c:if>

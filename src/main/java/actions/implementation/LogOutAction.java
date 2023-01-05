@@ -9,7 +9,7 @@ public class LogOutAction implements Action {
     @Override
     public String execute(HttpServletRequest request) {
         request.getSession().setAttribute("user", null);
-        System.out.println("user: null");
+        request.getSession().setAttribute("role", null);
         return "/railway";
     }
     

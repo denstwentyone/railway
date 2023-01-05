@@ -199,9 +199,8 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
     }
 
     @Override
-    public long logIn(String email, String password) throws SQLException {
-        System.out.println("dao login");
-
+    public Optional<User> logIn(String email, String password) throws SQLException {
+        Optional<User> result = Optional.empty();
         try (Connection connection = dataSource.getConnection();
             PreparedStatement statement = connection.prepareStatement(DBConstants.FIND_USER);) {
                 int k = 0;
@@ -210,10 +209,12 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
                 ResultSet resultSet = statement.executeQuery();
                 if (resultSet.next()) {
                     long id = resultSet.getLong("id");
-                    System.out.println(id);
-                    return id;
+                    result = Optional.of(new User(resultSet.getLong("id"), 
+                                            resultSet.getString("email"), 
+                                            resultSet.getString("password")));
+                    result.get().setRole(resultSet.getString("role"));
                 }
-                return 0;
+                return result;
         } catch (Exception e) {
             e.printStackTrace();
             throw new SQLException("Something went wrong while log in");
@@ -244,17 +245,18 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
     }
 
     @Override
-    public User getUser(String email) throws SQLException {
-        User result = null;
+    public Optional<User> getUser(String email) throws SQLException {
+        Optional<User> result = Optional.empty();
         try (Connection connection = dataSource.getConnection();
         PreparedStatement statement = connection.prepareStatement(DBConstants.FIND_USER_BY_EMAIL);) {
 
             statement.setString(1, email);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
-                result = new User(resultSet.getLong("id"), 
+                result = Optional.of(new User(resultSet.getLong("id"), 
                                     resultSet.getString("email"), 
-                                    resultSet.getString("password"));
+                                    resultSet.getString("password")));
+                result.get().setRole(resultSet.getString("role"));
             }
         } catch (SQLException e) {
             e.printStackTrace();

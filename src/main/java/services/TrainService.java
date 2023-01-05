@@ -14,7 +14,7 @@ public class TrainService implements Service {
     public Ticket order(long trainId, String userEmail) throws Exception  {
         try {
             System.out.println(trainId + " | " + userEmail);
-            Ticket ticket = dao.addTicket(trainId, dao.getUser(userEmail).getId());
+            Ticket ticket = dao.addTicket(trainId, dao.getUser(userEmail).get().getId());
 
             return ticket;
         } catch (Exception e) {

@@ -15,6 +15,7 @@
     } else {
         %>
         ${user}
+        ${role}
         <form action="controller?action=logout" method="post">
             <input type="submit" value="log out">
         </form>

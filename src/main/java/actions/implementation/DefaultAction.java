@@ -20,7 +20,7 @@ public class DefaultAction implements Action {
 
             if (request.getSession().getAttribute("user") != null) {
                 List<Train> tickets = new ArrayList<>();
-                tickets = dao.getTrainsForUser(dao.getUser((String)request.getSession().getAttribute("user"))); // TODO
+                tickets = dao.getTrainsForUser(dao.getUser((String)request.getSession().getAttribute("user")).get()); // TODO
                 request.getSession().setAttribute("tickets", tickets);
             }
             return "index.jsp";

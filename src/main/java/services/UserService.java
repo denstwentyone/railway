@@ -1,10 +1,12 @@
 package services;
 
 import java.sql.SQLException;
+import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import db.AbstractDAO;
+import db.entities.User;
 
 public class UserService implements Service {
     
@@ -30,14 +32,9 @@ public class UserService implements Service {
         }
     }
 
-    public boolean login(String email, String password) throws SQLException {
+    public Optional<User> login(String email, String password) throws SQLException {
         try {
-            if (dao.logIn(email, password) != 0) {
-                return true;
-            }
-            else {
-                return false;
-            }
+            return dao.logIn(email, password);
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

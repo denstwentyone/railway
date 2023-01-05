@@ -1,8 +1,11 @@
 package actions.implementation;
 
+import java.util.Optional;
+
 import javax.servlet.http.HttpServletRequest;
 
 import actions.Action;
+import db.entities.User;
 
 public class LogInAction implements Action {
 
@@ -24,9 +27,11 @@ public class LogInAction implements Action {
     private String execuePost(HttpServletRequest request) throws Exception {
         String email = (String) request.getParameter("email");
         String password = (String) request.getParameter("password");
+        Optional<User> user = userService.login(email, password);
         
-        if (userService.login(email, password)) {
-            request.getSession().setAttribute("user", email);
+        if (user.isPresent()) {
+            request.getSession().setAttribute("user", user.get().getEmail());
+            request.getSession().setAttribute("role", user.get().getRole());
             return "/railway";
         }
         else {
