@@ -10,7 +10,7 @@ public class LogOutAction implements Action {
     public String execute(HttpServletRequest request) {
         request.getSession().setAttribute("user", null);
         System.out.println("user: null");
-        return "index.jsp";
+        return "/railway";
     }
     
 }

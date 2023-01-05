@@ -3,7 +3,6 @@ package db.entities;
 import java.io.Serializable;
 
 public class Train implements Serializable {
-    private long id;
     private Route route;
     private String date;
     private int number;
@@ -48,14 +47,6 @@ public class Train implements Serializable {
     public String toString() {
         return "Train [route=" + route + ", date=" + date + ", number=" + number + ", cost=" + cost
                 + "]";
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     @Override

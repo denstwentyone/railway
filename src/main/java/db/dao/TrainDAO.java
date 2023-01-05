@@ -18,11 +18,11 @@ public interface TrainDAO {
 
     public List<Train> getTrainsByCity(String city) throws SQLException;
 
-    public long addTrain(Train train) throws Exception;
+    public long addTrain(Train train) throws SQLException;
 
-    public long addRoute(Route route) throws Exception;
+    public long addRoute(Route route) throws SQLException;
 
-    public long addStation(String name, String city) throws Exception;
+    public long addStation(String name, String city) throws SQLException;
 
-    public Ticket addTicket(long trainId, long userId) throws Exception;
+    public Ticket addTicket(long trainId, long userId) throws SQLException;
 }

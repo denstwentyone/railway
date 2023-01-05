@@ -8,21 +8,12 @@ import db.entities.Ticket;
 public class OrderAction implements Action {
 
     @Override
-    public String execute(HttpServletRequest request) {
-        Long trainId = (Long) request.getSession().getAttribute("trainId");
+    public String execute(HttpServletRequest request) throws Exception {
+        Integer trainId = Integer.parseInt(request.getParameter("trainid"));
         String userEmail = (String) request.getSession().getAttribute("user");
         System.out.println(trainId);
-        System.out.println(userEmail);
-
-        try {
-            Ticket ticket = trainService.order(trainId, userEmail);
-            request.getSession().setAttribute("ticket", ticket);
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-            request.getSession().setAttribute("error", e.getMessage());
-            return "errorpage.jsp";
-        }
+        Ticket ticket = trainService.order(trainId, userEmail);
+        request.getSession().setAttribute("ticket", ticket);
         return "order.jsp";
     }
     

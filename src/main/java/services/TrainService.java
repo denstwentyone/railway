@@ -13,11 +13,13 @@ public class TrainService implements Service {
     
     public Ticket order(long trainId, String userEmail) throws Exception  {
         try {
-            return dao.addTicket(trainId, dao.getUser(userEmail).getId());
+            System.out.println(trainId + " | " + userEmail);
+            Ticket ticket = dao.addTicket(trainId, dao.getUser(userEmail).getId());
+
+            return ticket;
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
-            throw new Exception("something went wrong");
+            throw new Exception("you cant order two tickets for one person");
         }
     }
 

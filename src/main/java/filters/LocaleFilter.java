@@ -20,9 +20,11 @@ public class LocaleFilter implements Filter {
             throws IOException, ServletException {
         
         HttpServletRequest request = (HttpServletRequest) req;
-        Locale locale = new Locale("en", "US");
-        ResourceBundle rb = ResourceBundle.getBundle("language", locale);
-        request.getSession().setAttribute("rb", rb);
+        if (request.getSession().getAttribute("rb") == null) {
+            Locale locale = new Locale("en", "US");
+            ResourceBundle rb = ResourceBundle.getBundle("language", locale);
+            request.getSession().setAttribute("rb", rb);
+        }
         chain.doFilter(request, resp);
     }
     

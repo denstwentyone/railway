@@ -19,5 +19,5 @@ public class Ticket implements Serializable {
     public Long getUserId() {
         return userId;
     }
-
+    
 }

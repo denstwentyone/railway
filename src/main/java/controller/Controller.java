@@ -30,7 +30,14 @@ public class Controller extends HttpServlet {
     
     private String process(HttpServletRequest req) {
         Action action = ACTION_FACTORY.createAction(req.getParameter("action"));
-        String path = action.execute(req);
+        String path;
+        try {
+            path = action.execute(req);
+        } catch (Exception e) {
+            e.printStackTrace();
+            req.getSession().setAttribute("error", e.getMessage());
+            path = "errorpage.jsp";
+        }
         return path;
         
     }

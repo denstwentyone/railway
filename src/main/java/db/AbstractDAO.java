@@ -72,7 +72,7 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
             
         } catch (SQLException e) {
             e.printStackTrace();
-            throw e;
+            throw new SQLException("Something went wrong while getting trains information");
         } 
         return result;
     }
@@ -106,7 +106,7 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            throw e;
+            throw new SQLException("Something went wrong while getting route information");
         } 
         return result;
     }
@@ -136,7 +136,8 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            throw e;
+            throw new SQLException("Something went wrong while getting station information");
+
         } 
         return result;
     }
@@ -146,17 +147,17 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
         return null;
     }
 
-    public long addTrain(Train train) throws Exception {
+    public long addTrain(Train train) throws SQLException {
         return 0;
     }
 
-    public long addRoute(Route route) throws Exception {
+    public long addRoute(Route route) throws SQLException {
         return 0;
     }
 
-    public long addStation(String name, String city) throws Exception {
+    public long addStation(String name, String city) throws SQLException {
         try (Connection connection = dataSource.getConnection();
-            PreparedStatement statement = connection.prepareStatement(DBConstants.INSERT_STATION);) {
+            PreparedStatement statement = connection.prepareStatement(DBConstants.INSERT_STATION, Statement.RETURN_GENERATED_KEYS)) {
                 int k = 0;
                 statement.setString(++k, name);
                 statement.setString(++k, city);
@@ -169,7 +170,8 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
                 return 0;
         } catch (Exception e) {
             e.printStackTrace();
-            throw e;
+            throw new SQLException("Something went wrong while adding station information");
+
         }
     }
 
@@ -191,7 +193,8 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
                 return 0;
         } catch (Exception e) {
             e.printStackTrace();
-            throw e;
+            throw new SQLException("Something went wrong while sign up");
+
         }
     }
 
@@ -213,13 +216,13 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
                 return 0;
         } catch (Exception e) {
             e.printStackTrace();
-            throw e;
+            throw new SQLException("Something went wrong while log in");
+
         }
     }
 
     @Override
-    public Ticket addTicket(long trainId, long userId) throws Exception {
-        Ticket result = null;
+    public Ticket addTicket(long trainId, long userId) throws SQLException {
         try (Connection connection = dataSource.getConnection();
             PreparedStatement statement = connection.prepareStatement(DBConstants.INSERT_TICKET, Statement.RETURN_GENERATED_KEYS);) {
                 int k = 0;
@@ -230,13 +233,13 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
                 ResultSet keys = statement.getGeneratedKeys();
                 System.out.println("colomns:"+keys.getMetaData().getColumnCount());
                 if (keys.next()) {
-                    result = new Ticket(keys.getLong("train"), keys.getLong("\"user\""));
-                    return result;
+                    return new Ticket(keys.getLong("train"), keys.getLong("user"));
                 }
-                return result;
+                throw new SQLException("Something went wrong while adding order information");
         } catch (Exception e) {
             e.printStackTrace();
-            throw e;
+            throw new SQLException("Something went wrong while adding order information");
+
         }
     }
 
@@ -246,7 +249,7 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
         try (Connection connection = dataSource.getConnection();
         PreparedStatement statement = connection.prepareStatement(DBConstants.FIND_USER_BY_EMAIL);) {
 
-            statement.setString(0, email);
+            statement.setString(1, email);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 result = new User(resultSet.getLong("id"), 
@@ -255,9 +258,29 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            throw e;
+            throw new SQLException("Something went wrong while getting user information");
+
         } 
         return result;
     }
-    
+
+    @Override
+    public List<Train> getTrainsForUser(User user) throws SQLException {
+        List<Train> result = new ArrayList<>();
+        try (Connection connection = dataSource.getConnection();
+        PreparedStatement statement = connection.prepareStatement(DBConstants.GET_TRAINS_BY_USER);) {
+            
+            statement.setLong(1, user.getId());
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                mapTrain(result, resultSet);
+            }
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new SQLException("Something went wrong while getting trains information");
+        } 
+        return result;
+    }
 }

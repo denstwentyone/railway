@@ -33,5 +33,14 @@ public abstract class DBConstants {
 
     public static String FIND_USER_BY_EMAIL = "SELECT * FROM \"user\" WHERE email = ?";
 
-    public static String INSERT_TICKET = "  insert into ticket (train, \"user\") values (?, ?)";
+    public static String INSERT_TICKET = "insert into ticket (train, \"user\") values (?, ?)";
+
+    public static String GET_TRAINS_BY_USER = "SELECT r.\"startingTime\", ss.name startingName, ss.city startingCity, " +
+                                        "r.\"finalTime\", sf.name finalName, sf.city finalCity, " + 
+                                        "t.date, t.cost, t.id " + 
+                                        "FROM train t " + 
+                                        "join route r on t.route = r.id " + 
+                                        "join station ss on ss.id = r.\"startingStation\" " + 
+                                        "join station sf on sf.id = r.\"finalStation\"" + 
+                                        "JOIN ticket tic ON t.id = tic.train WHERE tic.user = ?";
 }

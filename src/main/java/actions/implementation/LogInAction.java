@@ -1,7 +1,5 @@
 package actions.implementation;
 
-import java.sql.SQLException;
-
 import javax.servlet.http.HttpServletRequest;
 
 import actions.Action;
@@ -9,7 +7,7 @@ import actions.Action;
 public class LogInAction implements Action {
 
     @Override
-    public String execute(HttpServletRequest request) {
+    public String execute(HttpServletRequest request) throws Exception {
 
         if (request.getMethod().equals("POST")) {
             return execuePost(request);
@@ -23,24 +21,18 @@ public class LogInAction implements Action {
         return "login.jsp";
     }
 
-    private String execuePost(HttpServletRequest request) {
+    private String execuePost(HttpServletRequest request) throws Exception {
         String email = (String) request.getParameter("email");
         String password = (String) request.getParameter("password");
-        try {
-            if (userService.login(email, password)) {
-                request.getSession().setAttribute("user", email);
-                return "index.jsp";
-            }
-            else {
-                request.getSession().setAttribute("error", "no such user");
-                return "errorpage.jsp";
-            }
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-            request.getSession().setAttribute("error", e.getMessage());
-            return "errorpage.jsp";
+        
+        if (userService.login(email, password)) {
+            request.getSession().setAttribute("user", email);
+            return "/railway";
         }
+        else {
+            throw new Exception("invalid password or email");
+        }
+        
     }
     
 }
