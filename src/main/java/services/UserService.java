@@ -1,11 +1,13 @@
 package services;
 
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import db.AbstractDAO;
+import db.entities.Train;
 import db.entities.User;
 
 public class UserService implements Service {
@@ -21,7 +23,6 @@ public class UserService implements Service {
             try {
                 dao.signUp(email, password);
             } catch (Exception e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
                 throw new SQLException("user already exist");
             }
@@ -36,10 +37,16 @@ public class UserService implements Service {
         try {
             return dao.logIn(email, password);
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
-            throw new SQLException("invalid input");
+            throw new SQLException("invalid password or email");
         }
+    }
+
+    public List<Train> getTickets(String userEmail) throws SQLException {
+        if (userEmail == null) {
+            return null;
+        }
+        return dao.getTrainsForUser(dao.getUser(userEmail).get());
     }
 
     private static boolean isValidPassword(String password) {

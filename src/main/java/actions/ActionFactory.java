@@ -3,6 +3,7 @@ package actions;
 import java.util.HashMap;
 import java.util.Map;
 
+import actions.implementation.AddStationAction;
 import actions.implementation.ChangeLocaleAction;
 import actions.implementation.DefaultAction;
 import actions.implementation.LogInAction;
@@ -21,6 +22,8 @@ public final class ActionFactory {
         ACTION_MAP.put("signup",  new SignUpAction());
         ACTION_MAP.put("changelocale",  new ChangeLocaleAction());
         ACTION_MAP.put("order",  new OrderAction());
+        ACTION_MAP.put("addstation",  new AddStationAction());
+
     }
 
     private ActionFactory() {}

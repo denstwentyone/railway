@@ -118,11 +118,16 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
         String finalTime = resultSet.getString("finalTime");
         String finalName = resultSet.getString("finalName");
         String finalCity = resultSet.getString("finalCity");
+        Integer id = resultSet.getInt("id");
 
-        result.add(new Route(new Station(startingName, startingCity), 
-                             startingTime, 
-                             new Station(finalName, finalCity), 
-                             finalTime));
+
+        Route route = new Route(new Station(startingName, startingCity), 
+                                    startingTime, 
+                                    new Station(finalName, finalCity), 
+                                    finalTime);
+        route.setId(id);
+        result.add(route);
+        
     }
 
     public List<Station> getAllStations() throws SQLException {
@@ -132,7 +137,9 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
             ResultSet resultSet = statement.executeQuery(DBConstants.GET_ALL_STATIONS);) {
             
             while (resultSet.next()) {
-                result.add(new Station(resultSet.getString("name"), resultSet.getString("city")));
+                Station station = new Station(resultSet.getString("name"), resultSet.getString("city"));
+                station.setId(resultSet.getInt("id"));
+                result.add(station);
             }
         } catch (SQLException e) {
             e.printStackTrace();
