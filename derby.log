@@ -1,6 +1,6 @@
 ----------------------------------------------------------------
-Fri Jan 06 19:59:46 EET 2023:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.15.2.0 - (1873585): instance a816c00e-0185-883d-2348-00000f6eafb0 
+Sat Jan 07 17:45:43 EET 2023:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.15.2.0 - (1873585): instance a816c00e-0185-8ce8-c71d-00000f6f9610 
 on database directory memory:C:\Users\sulyt\myprojects\Railway ticket office\railway\testdb with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@2a139a55 
 Loaded from file:/C:/Users/sulyt/.m2/repository/org/apache/derby/derby/10.15.2.0/derby-10.15.2.0.jar
 java.vendor=Oracle Corporation
@@ -12,8 +12,8 @@ os.version=10.0
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
 ----------------------------------------------------------------
-Fri Jan 06 19:59:47 EET 2023: Shutting down Derby engine
+Sat Jan 07 17:45:44 EET 2023: Shutting down Derby engine
 ----------------------------------------------------------------
-Fri Jan 06 19:59:47 EET 2023:
-Shutting down instance a816c00e-0185-883d-2348-00000f6eafb0 on database directory memory:C:\Users\sulyt\myprojects\Railway ticket office\railway\testdb with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@2a139a55 
+Sat Jan 07 17:45:44 EET 2023:
+Shutting down instance a816c00e-0185-8ce8-c71d-00000f6f9610 on database directory memory:C:\Users\sulyt\myprojects\Railway ticket office\railway\testdb with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@2a139a55 
 ----------------------------------------------------------------

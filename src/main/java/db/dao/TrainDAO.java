@@ -1,6 +1,8 @@
 package db.dao;
 
+import java.sql.Date;
 import java.sql.SQLException;
+import java.sql.Time;
 import java.util.List;
 
 import db.entities.Route;
@@ -18,9 +20,9 @@ public interface TrainDAO {
 
     public List<Train> getTrainsByCity(String city) throws SQLException;
 
-    public long addTrain(Train train) throws SQLException;
+    public long addTrain(Long route, Date date, Double cost) throws SQLException;
 
-    public long addRoute(Route route) throws SQLException;
+    public long addRoute(Long startingStation, Time startingTime, Long finalStation, Time finalTime) throws SQLException;
 
     public long addStation(String name, String city) throws SQLException;
 

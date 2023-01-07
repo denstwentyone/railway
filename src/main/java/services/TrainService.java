@@ -1,6 +1,8 @@
 package services;
 
+import java.sql.Date;
 import java.sql.SQLException;
+import java.sql.Time;
 import java.util.List;
 
 import db.AbstractDAO;
@@ -37,7 +39,6 @@ public class TrainService implements Service {
     
     public Ticket order(long trainId, String userEmail) throws Exception  {
         try {
-            System.out.println(trainId + " | " + userEmail);
             Ticket ticket = dao.addTicket(trainId, dao.getUser(userEmail).get().getId());
 
             return ticket;
@@ -51,4 +52,11 @@ public class TrainService implements Service {
         dao.addStation(name, city);
     }
 
+    public void addRoute(Long startingStation, String startingTime, Long finalStation, String finalTime) throws SQLException {
+        dao.addRoute(startingStation, Time.valueOf(startingTime), finalStation, Time.valueOf(finalTime));
+    }
+
+    public void addTrain(Long route, String date, Double cost) throws SQLException {
+        dao.addTrain(route, Date.valueOf(date), cost);
+    }
 }

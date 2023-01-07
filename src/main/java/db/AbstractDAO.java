@@ -8,6 +8,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Time;
+import java.sql.Date;
 import java.util.*;
 
 import com.zaxxer.hikari.HikariConfig;
@@ -154,12 +156,48 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
         return null;
     }
 
-    public long addTrain(Train train) throws SQLException {
-        return 0;
+    @Override
+    public long addTrain(Long route, Date date, Double cost) throws SQLException {
+        try (Connection connection = dataSource.getConnection();
+            PreparedStatement statement = connection.prepareStatement(DBConstants.INSERT_TRAIN, Statement.RETURN_GENERATED_KEYS)) {
+                int k = 0;
+                statement.setLong(++k, route);
+                statement.setDate(++k, date);
+                statement.setDouble(++k, cost);
+                statement.executeUpdate();
+                statement.getGeneratedKeys();
+                ResultSet keys = statement.getGeneratedKeys();
+                if (keys.next()) {
+                    return keys.getLong("id");
+                }
+                return 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new SQLException("Something went wrong while adding train information");
+
+        }
     }
 
-    public long addRoute(Route route) throws SQLException {
-        return 0;
+    public long addRoute(Long startingStation, Time startingTime, Long finalStation, Time finalTime) throws SQLException {
+        try (Connection connection = dataSource.getConnection();
+            PreparedStatement statement = connection.prepareStatement(DBConstants.INSERT_ROUTE, Statement.RETURN_GENERATED_KEYS)) {
+                int k = 0;
+                statement.setLong(++k, startingStation);
+                statement.setTime(++k, startingTime);
+                statement.setLong(++k, finalStation);
+                statement.setTime(++k, finalTime);
+                statement.executeUpdate();
+                statement.getGeneratedKeys();
+                ResultSet keys = statement.getGeneratedKeys();
+                if (keys.next()) {
+                    return keys.getLong("id");
+                }
+                return 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new SQLException("Something went wrong while adding route information");
+
+        }
     }
 
     public long addStation(String name, String city) throws SQLException {
@@ -184,7 +222,6 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
 
     @Override
     public long signUp(String email, String password) throws SQLException {
-        System.out.println("dao signup");
 
         try (Connection connection = dataSource.getConnection();
             PreparedStatement statement = connection.prepareStatement(DBConstants.INSERT_USER, Statement.RETURN_GENERATED_KEYS);) {
@@ -215,7 +252,6 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
                 statement.setString(++k, password);
                 ResultSet resultSet = statement.executeQuery();
                 if (resultSet.next()) {
-                    long id = resultSet.getLong("id");
                     result = Optional.of(new User(resultSet.getLong("id"), 
                                             resultSet.getString("email"), 
                                             resultSet.getString("password")));
@@ -239,7 +275,6 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
                 statement.executeUpdate();
                 statement.getGeneratedKeys();
                 ResultSet keys = statement.getGeneratedKeys();
-                System.out.println("colomns:"+keys.getMetaData().getColumnCount());
                 if (keys.next()) {
                     return new Ticket(keys.getLong("train"), keys.getLong("user"));
                 }

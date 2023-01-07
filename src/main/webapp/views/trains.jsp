@@ -12,3 +12,17 @@
     </form>
 </c:forEach>
 <br/>
+<c:if test = "${role == 'admin'}">
+    <h3>${rb.getString("addtrain")}</h3>
+    <form action="/railway/controller?action=addtrain" method="post">
+        <p>${rb.getString("route")}</p> 
+        <select name="route">
+            <c:forEach var="route" items="${routes}">
+                <option value="${route.getId()}">${route.toString()}</option>
+            </c:forEach>
+        </select> 
+        <p>${rb.getString("date")}</p> <input name="date" type="date"/>
+        <p>${rb.getString("cost")}</p> <input name="cost" type="number"/>
+        <input type="submit" value="${rb.getString("add")}">
+    </form>
+</c:if>

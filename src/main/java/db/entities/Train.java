@@ -15,6 +15,12 @@ public class Train implements Serializable {
         this.cost = cost;
     }
 
+    public Train(Route route, String date, Double cost) {
+        this.route = route;
+        this.date = date;
+        this.cost = cost;
+    }
+
     public String getTravelTime() {
         return route.getFinalTime() + " - " + route.getStartingTime();
     }

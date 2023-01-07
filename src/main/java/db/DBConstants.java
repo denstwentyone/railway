@@ -25,7 +25,7 @@ public abstract class DBConstants {
 
     public static String INSERT_ROUTE = "INSERT INTO route(\"startingStation\", \"startingTime\", \"finalStation\", \"finalTime\") VALUES (?, ?, ?, ?)";
 
-    public static String INSERT_TRAIN = "INSERT INTO train(route, date, cost, seats) VALUES (?, ?, ?, ?)";
+    public static String INSERT_TRAIN = "INSERT INTO train(route, date, cost) VALUES (?, ?, ?)";
 
     public static String INSERT_USER = "INSERT INTO \"user\"(email, password) VALUES (?, ?)";
 
