@@ -38,8 +38,7 @@ public class Route implements Serializable {
 
     @Override
     public String toString() {
-        return "Route [startingStation=" + startingStation + ", startingTime=" + startingTime + ", finalStation="
-                + finalStation + ", finalTime=" + finalTime + "]";
+        return startingStation + " " + startingTime + " -> " + finalStation + " " + finalTime;
     }
 
     @Override

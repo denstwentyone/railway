@@ -14,6 +14,7 @@ public class AddRouteAction implements Action {
         String finalTime = request.getParameter("finaltime");
         trainService.addRoute(startingStation, startingTime, finalStation, finalTime);
         return "/railway";
+        // return "index.jsp";
     }
     
 }

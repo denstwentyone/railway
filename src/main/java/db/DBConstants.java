@@ -11,15 +11,23 @@ public abstract class DBConstants {
                                             "FROM train t " + 
                                             "join route r on t.route = r.id " + 
                                             "join station ss on ss.id = r.\"startingStation\" " + 
-                                            "join station sf on sf.id = r.\"finalStation\"";
+                                            "join station sf on sf.id = r.\"finalStation\"LIMIT 3 OFFSET 3*(?-1)";
+
+    public static String GET_TRAINS_BY_ROUTE_ID = "SELECT r.\"startingTime\", ss.name startingName, ss.city startingCity, " +
+                                            "r.\"finalTime\", sf.name finalName, sf.city finalCity, " + 
+                                            "t.date, t.cost, t.id " + 
+                                            "FROM train t " + 
+                                            "join route r on t.route = r.id " + 
+                                            "join station ss on ss.id = r.\"startingStation\" " + 
+                                            "join station sf on sf.id = r.\"finalStation\" WHERE t.route = ? LIMIT 3 OFFSET 3*(?-1)";
 
     public static String GET_ALL_ROUTES = "SELECT s1.name as startingName, s1.city as startingCity, \"startingTime\"," 
                                         + "s2.name as finalName, s2.city as finalCity, \"finalTime\", r.id "
                                         + "FROM route r "
                                         + "join station s1 on s1.id = r.\"startingStation\""
-                                        + "join station s2 on s2.id = r.\"finalStation\"";
+                                        + "join station s2 on s2.id = r.\"finalStation\" LIMIT 3 OFFSET 3*(?-1)";
 
-    public static String GET_ALL_STATIONS = "SELECT * FROM station";
+    public static String GET_ALL_STATIONS = "SELECT * FROM station LIMIT 3 OFFSET 3*(?-1)";
 
     public static String INSERT_STATION = "INSERT INTO station(name, city) VALUES (?, ?)";
 
@@ -36,11 +44,11 @@ public abstract class DBConstants {
     public static String INSERT_TICKET = "insert into ticket (train, \"user\") values (?, ?)";
 
     public static String GET_TRAINS_BY_USER = "SELECT r.\"startingTime\", ss.name startingName, ss.city startingCity, " +
-                                        "r.\"finalTime\", sf.name finalName, sf.city finalCity, " + 
-                                        "t.date, t.cost, t.id " + 
-                                        "FROM train t " + 
-                                        "join route r on t.route = r.id " + 
-                                        "join station ss on ss.id = r.\"startingStation\" " + 
-                                        "join station sf on sf.id = r.\"finalStation\"" + 
-                                        "JOIN ticket tic ON t.id = tic.train WHERE tic.user = ?";
+                                              "r.\"finalTime\", sf.name finalName, sf.city finalCity, " + 
+                                              "t.date, t.cost, t.id " + 
+                                              "FROM train t " + 
+                                              "join route r on t.route = r.id " + 
+                                              "join station ss on ss.id = r.\"startingStation\" " + 
+                                              "join station sf on sf.id = r.\"finalStation\"" + 
+                                              "JOIN ticket tic ON t.id = tic.train WHERE tic.user = ? LIMIT 3 OFFSET 3*(?-1)";
 }

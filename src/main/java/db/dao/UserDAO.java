@@ -15,6 +15,6 @@ public interface UserDAO {
 
     public Optional<User> getUser(String email) throws SQLException;
 
-    public List<Train> getTrainsForUser(User user) throws SQLException;
+    public List<Train> getTrainsForUser(User user, Integer page) throws SQLException;
 
 }

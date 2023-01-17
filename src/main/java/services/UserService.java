@@ -42,11 +42,11 @@ public class UserService implements Service {
         }
     }
 
-    public List<Train> getTickets(String userEmail) throws SQLException {
+    public List<Train> getTickets(String userEmail, Integer page) throws SQLException {
         if (userEmail == null) {
             return null;
         }
-        return dao.getTrainsForUser(dao.getUser(userEmail).get());
+        return dao.getTrainsForUser(dao.getUser(userEmail).get(), page);
     }
 
     private static boolean isValidPassword(String password) {

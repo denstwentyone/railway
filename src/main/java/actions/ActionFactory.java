@@ -8,10 +8,13 @@ import actions.implementation.AddStationAction;
 import actions.implementation.AddTrainAction;
 import actions.implementation.ChangeLocaleAction;
 import actions.implementation.DefaultAction;
+import actions.implementation.GetRouteTrains;
 import actions.implementation.LogInAction;
 import actions.implementation.LogOutAction;
 import actions.implementation.OrderAction;
 import actions.implementation.SignUpAction;
+import actions.implementation.pagination.NextAction;
+import actions.implementation.pagination.PrevAction;
 
 public final class ActionFactory {
     
@@ -27,6 +30,9 @@ public final class ActionFactory {
         ACTION_MAP.put("addstation",  new AddStationAction());
         ACTION_MAP.put("addroute",  new AddRouteAction());
         ACTION_MAP.put("addtrain",  new AddTrainAction());
+        ACTION_MAP.put("routetrains",  new GetRouteTrains());
+        ACTION_MAP.put("prev",  new PrevAction());
+        ACTION_MAP.put("next",  new NextAction());
 
     }
 

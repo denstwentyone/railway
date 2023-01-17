@@ -12,13 +12,13 @@ import db.entities.Train;
 
 public interface TrainDAO {
     
-    public List<Train> getAllTrains() throws SQLException;
+    public List<Train> getAllTrains(Integer page) throws SQLException;
 
-    public List<Route> getAllRoutes() throws SQLException;
+    public List<Route> getAllRoutes(Integer page) throws SQLException;
 
-    public List<Station> getAllStations() throws SQLException;
+    public List<Station> getAllStations(Integer page) throws SQLException;
 
-    public List<Train> getTrainsByCity(String city) throws SQLException;
+    public List<Train> getTrainsByRoute(Long routeId, Integer page) throws SQLException;
 
     public long addTrain(Long route, Date date, Double cost) throws SQLException;
 
@@ -27,4 +27,5 @@ public interface TrainDAO {
     public long addStation(String name, String city) throws SQLException;
 
     public Ticket addTicket(long trainId, long userId) throws SQLException;
+    
 }

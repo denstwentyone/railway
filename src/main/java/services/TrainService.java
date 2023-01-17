@@ -19,21 +19,27 @@ public class TrainService implements Service {
         TrainService.dao = dao;
     }
 
-    public List<Train> getAllTrains() throws Exception {
+    public List<Train> getAllTrains(Integer page) throws Exception {
 
-        return dao.getAllTrains();
+        return dao.getAllTrains(page);
     
     }
 
-    public List<Route> getAllRoutes() throws Exception {
+    public List<Train> getTrainsByRoute(Long routeId, Integer page) throws Exception {
 
-        return dao.getAllRoutes();
+        return dao.getTrainsByRoute(routeId, page);
     
     }
 
-    public List<Station> getAllStations() throws Exception {
+    public List<Route> getAllRoutes(Integer page) throws Exception {
 
-        return dao.getAllStations();
+        return dao.getAllRoutes(page);
+    
+    }
+
+    public List<Station> getAllStations(Integer page) throws Exception {
+
+        return dao.getAllStations(page);
     
     }
     

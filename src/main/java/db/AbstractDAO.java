@@ -41,8 +41,8 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
         }
 
         try (InputStream input = new FileInputStream(
-                "C:\\Users\\sulyt\\myprojects\\Railway ticket office\\railway\\app.properties")) { // TODO
-
+            Thread.currentThread().getContextClassLoader().getResource("").getPath() + "app.properties" )) { // TODO
+            
             final Properties prop = new Properties();
 
             // load a properties file
@@ -62,12 +62,17 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
         }
     }
 
-    public List<Train> getAllTrains() throws SQLException {
+    /* (non-Javadoc)
+     * @see db.dao.TrainDAO#getAllTrains()
+     */
+    @Override
+    public List<Train> getAllTrains(Integer page) throws SQLException {
         List<Train> result = new ArrayList<>();
         try (Connection connection = dataSource.getConnection();
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(DBConstants.GET_ALL_TRAINS);) {
+            PreparedStatement statement = connection.prepareStatement(DBConstants.GET_ALL_TRAINS);) {
             
+            statement.setInt(1, page);
+            ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 mapTrain(result, resultSet);
             }
@@ -97,12 +102,17 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
                 date, number, cost));
     }
 
-    public List<Route> getAllRoutes() throws SQLException {
+    /* (non-Javadoc)
+     * @see db.dao.TrainDAO#getAllRoutes()
+     */
+    @Override
+    public List<Route> getAllRoutes(Integer page) throws SQLException {
         List<Route> result = new ArrayList<>();
         try (Connection connection = dataSource.getConnection();
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(DBConstants.GET_ALL_ROUTES);) {
+            PreparedStatement statement = connection.prepareStatement(DBConstants.GET_ALL_ROUTES);) {
             
+            statement.setInt(1, page);
+            ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 mapRoute(result, resultSet);
             }
@@ -132,12 +142,17 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
         
     }
 
-    public List<Station> getAllStations() throws SQLException {
+    /* (non-Javadoc)
+     * @see db.dao.TrainDAO#getAllStations()
+     */
+    @Override
+    public List<Station> getAllStations(Integer page) throws SQLException {
         List<Station> result = new ArrayList<>();
         try (Connection connection = dataSource.getConnection();
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(DBConstants.GET_ALL_STATIONS);) {
+            PreparedStatement statement = connection.prepareStatement(DBConstants.GET_ALL_STATIONS);) {
             
+            statement.setInt(1, page);
+            ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 Station station = new Station(resultSet.getString("name"), resultSet.getString("city"));
                 station.setId(resultSet.getInt("id"));
@@ -151,11 +166,32 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
         return result;
     }
 
-    public List<Train> getTrainsByCity(String city) throws SQLException {
-        // TODO Auto-generated method stub
-        return null;
+    /* (non-Javadoc)
+     * @see db.dao.TrainDAO#getTrainsByRoute(java.lang.Long)
+     */
+    @Override
+    public List<Train> getTrainsByRoute(Long routeId, Integer page) throws SQLException {
+        List<Train> result = new ArrayList<>();
+        try (Connection connection = dataSource.getConnection();
+            PreparedStatement statement = connection.prepareStatement(DBConstants.GET_TRAINS_BY_ROUTE_ID)) {
+            
+            statement.setLong(1, routeId);
+            statement.setInt(2, page);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                mapTrain(result, resultSet);
+            }
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new SQLException("Something went wrong while getting trains information");
+        } 
+        return result;
     }
 
+    /* (non-Javadoc)
+     * @see db.dao.TrainDAO#addTrain(java.lang.Long, java.sql.Date, java.lang.Double)
+     */
     @Override
     public long addTrain(Long route, Date date, Double cost) throws SQLException {
         try (Connection connection = dataSource.getConnection();
@@ -178,6 +214,9 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
         }
     }
 
+    /* (non-Javadoc)
+     * @see db.dao.TrainDAO#addRoute(java.lang.Long, java.sql.Time, java.lang.Long, java.sql.Time)
+     */
     public long addRoute(Long startingStation, Time startingTime, Long finalStation, Time finalTime) throws SQLException {
         try (Connection connection = dataSource.getConnection();
             PreparedStatement statement = connection.prepareStatement(DBConstants.INSERT_ROUTE, Statement.RETURN_GENERATED_KEYS)) {
@@ -200,6 +239,9 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
         }
     }
 
+    /* (non-Javadoc)
+     * @see db.dao.TrainDAO#addStation(java.lang.String, java.lang.String)
+     */
     public long addStation(String name, String city) throws SQLException {
         try (Connection connection = dataSource.getConnection();
             PreparedStatement statement = connection.prepareStatement(DBConstants.INSERT_STATION, Statement.RETURN_GENERATED_KEYS)) {
@@ -220,6 +262,9 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
         }
     }
 
+    /* (non-Javadoc)
+     * @see db.dao.UserDAO#signUp(java.lang.String, java.lang.String)
+     */
     @Override
     public long signUp(String email, String password) throws SQLException {
 
@@ -242,6 +287,9 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
         }
     }
 
+    /* (non-Javadoc)
+     * @see db.dao.UserDAO#logIn(java.lang.String, java.lang.String)
+     */
     @Override
     public Optional<User> logIn(String email, String password) throws SQLException {
         Optional<User> result = Optional.empty();
@@ -265,6 +313,9 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
         }
     }
 
+    /* (non-Javadoc)
+     * @see db.dao.TrainDAO#addTicket(long, long)
+     */
     @Override
     public Ticket addTicket(long trainId, long userId) throws SQLException {
         try (Connection connection = dataSource.getConnection();
@@ -273,7 +324,6 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
                 statement.setLong(++k, trainId);
                 statement.setLong(++k, userId);
                 statement.executeUpdate();
-                statement.getGeneratedKeys();
                 ResultSet keys = statement.getGeneratedKeys();
                 if (keys.next()) {
                     return new Ticket(keys.getLong("train"), keys.getLong("user"));
@@ -286,6 +336,9 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
         }
     }
 
+    /* (non-Javadoc)
+     * @see db.dao.UserDAO#getUser(java.lang.String)
+     */
     @Override
     public Optional<User> getUser(String email) throws SQLException {
         Optional<User> result = Optional.empty();
@@ -308,15 +361,18 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
         return result;
     }
 
+    /* (non-Javadoc)
+     * @see db.dao.UserDAO#getTrainsForUser(db.entities.User)
+     */
     @Override
-    public List<Train> getTrainsForUser(User user) throws SQLException {
+    public List<Train> getTrainsForUser(User user, Integer page) throws SQLException {
         List<Train> result = new ArrayList<>();
         try (Connection connection = dataSource.getConnection();
-        PreparedStatement statement = connection.prepareStatement(DBConstants.GET_TRAINS_BY_USER);) {
+            PreparedStatement statement = connection.prepareStatement(DBConstants.GET_TRAINS_BY_USER);) {
             
             statement.setLong(1, user.getId());
+            statement.setInt(2, page);
             ResultSet resultSet = statement.executeQuery();
-
             while (resultSet.next()) {
                 mapTrain(result, resultSet);
             }

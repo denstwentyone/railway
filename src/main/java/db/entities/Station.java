@@ -26,7 +26,7 @@ public class Station implements Serializable {
 
     @Override
     public String toString() {
-        return "Station [name=" + name + ", city=" + city + "]";
+        return city + "-" + name;
     }
 
     @Override
