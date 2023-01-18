@@ -29,6 +29,8 @@ public abstract class DBConstants {
 
     public static String GET_ALL_STATIONS = "SELECT * FROM station LIMIT 3 OFFSET 3*(?-1)";
 
+    public static String GET_ALL_STATIONS_NO_PAGINATION = "SELECT * FROM station";
+
     public static String INSERT_STATION = "INSERT INTO station(name, city) VALUES (?, ?)";
 
     public static String INSERT_ROUTE = "INSERT INTO route(\"startingStation\", \"startingTime\", \"finalStation\", \"finalTime\") VALUES (?, ?, ?, ?)";

@@ -50,6 +50,14 @@ public class PrevAction implements Action {
             request.getSession().setAttribute("routespage", page);
             request.getSession().setAttribute("routes", trainService.getAllRoutes(page));
         }
+        if (request.getParameter("value").equals("selectroutes")) {
+            Integer page = (Integer)request.getSession().getAttribute("selectroutespage");
+            if (page>1) {
+                page--;
+            }
+            request.getSession().setAttribute("selectroutespage", page);
+            request.getSession().setAttribute("selectroutes", trainService.getAllRoutes(page));
+        }
         return request.getParameter("view");
     }
     

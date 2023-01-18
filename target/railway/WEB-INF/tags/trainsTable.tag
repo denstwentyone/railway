@@ -28,7 +28,7 @@
                 <c:if test = "${role == 'customer'}">
                 <form action="controller?action=order" method="post"> 
                     <input type="hidden" name="trainid" value="${train.getNumber()}">
-                    <input type="submit" value="order">
+                    <input class="btn btn-default bg-secondary text-white m-1" type="submit" value="order">
                 </form>
                 </c:if>
             </td>

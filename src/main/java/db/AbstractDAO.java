@@ -41,7 +41,7 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
         }
 
         try (InputStream input = new FileInputStream(
-            Thread.currentThread().getContextClassLoader().getResource("").getPath() + "app.properties" )) { // TODO
+            Thread.currentThread().getContextClassLoader().getResource("").getPath() + "app.properties" )) {
             
             final Properties prop = new Properties();
 
@@ -152,6 +152,29 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
             PreparedStatement statement = connection.prepareStatement(DBConstants.GET_ALL_STATIONS);) {
             
             statement.setInt(1, page);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                Station station = new Station(resultSet.getString("name"), resultSet.getString("city"));
+                station.setId(resultSet.getInt("id"));
+                result.add(station);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new SQLException("Something went wrong while getting station information");
+
+        } 
+        return result;
+    }
+
+    /**
+     * @return
+     * @throws SQLException
+     */
+    public List<Station> getAllStations() throws SQLException {
+        List<Station> result = new ArrayList<>();
+        try (Connection connection = dataSource.getConnection();
+            PreparedStatement statement = connection.prepareStatement(DBConstants.GET_ALL_STATIONS_NO_PAGINATION);) {
+            
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 Station station = new Station(resultSet.getString("name"), resultSet.getString("city"));

@@ -13,6 +13,11 @@ public interface Action {
     static UserService userService = new UserService(PostgresDAO.getInstance());
     static TrainService trainService = new TrainService(PostgresDAO.getInstance());
     
+    /**
+     * @param request
+     * @return
+     * @throws Exception
+     */
     String execute(HttpServletRequest request) throws Exception;
 
 }

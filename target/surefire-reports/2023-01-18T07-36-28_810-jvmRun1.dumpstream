@@ -1,0 +1,1842 @@
+# Created at 2023-01-18T07:36:47.535
+TestSet has not finished before stream error has appeared >> initializing exit by non-null configuration: null
+java.io.EOFException
+	at java.base/java.io.DataInputStream.readInt(DataInputStream.java:398)
+	at org.apache.maven.surefire.booter.MasterProcessCommand.decode(MasterProcessCommand.java:115)
+	at org.apache.maven.surefire.booter.CommandReader$CommandRunnable.run(CommandReader.java:391)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+
+# Created at 2023-01-18T07:36:48.130
+Unexpected IOException with stream: [main] ERROR com.zaxxer.hikari.pool.HikariPool - HikariPool-17 - Exception during pool initialization.
+
+
+# Created at 2023-01-18T07:36:48.131
+Unexpected IOException with stream: org.postgresql.util.PSQLException: FATAL: sorry, too many clients already
+
+# Created at 2023-01-18T07:36:48.132
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.133
+Unexpected IOException with stream: 	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:659)
+
+# Created at 2023-01-18T07:36:48.133
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.134
+Unexpected IOException with stream: 	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:180)
+
+# Created at 2023-01-18T07:36:48.134
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.135
+Unexpected IOException with stream: 	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:235)
+
+# Created at 2023-01-18T07:36:48.135
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.136
+Unexpected IOException with stream: 	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:49)
+
+# Created at 2023-01-18T07:36:48.136
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.136
+Unexpected IOException with stream: 	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:247)
+
+# Created at 2023-01-18T07:36:48.137
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.137
+Unexpected IOException with stream: 	at org.postgresql.Driver.makeConnection(Driver.java:434)
+
+# Created at 2023-01-18T07:36:48.138
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.138
+Unexpected IOException with stream: 	at org.postgresql.Driver.connect(Driver.java:291)
+
+# Created at 2023-01-18T07:36:48.139
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.139
+Unexpected IOException with stream: 	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:121)
+
+# Created at 2023-01-18T07:36:48.140
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.140
+Unexpected IOException with stream: 	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+
+# Created at 2023-01-18T07:36:48.141
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.141
+Unexpected IOException with stream: 	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+
+# Created at 2023-01-18T07:36:48.142
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.142
+Unexpected IOException with stream: 	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+
+# Created at 2023-01-18T07:36:48.143
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.143
+Unexpected IOException with stream: 	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+
+# Created at 2023-01-18T07:36:48.143
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.144
+Unexpected IOException with stream: 	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+
+# Created at 2023-01-18T07:36:48.144
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.145
+Unexpected IOException with stream: 	at com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:81)
+
+# Created at 2023-01-18T07:36:48.145
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.146
+Unexpected IOException with stream: 	at db.AbstractDAO.configDManager(AbstractDAO.java:58)
+
+# Created at 2023-01-18T07:36:48.147
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.147
+Unexpected IOException with stream: 	at db.postgres.PostgresDAO.<init>(PostgresDAO.java:10)
+
+# Created at 2023-01-18T07:36:48.148
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.148
+Unexpected IOException with stream: 	at db.postgres.PostgresDAO.getInstance(PostgresDAO.java:15)
+
+# Created at 2023-01-18T07:36:48.149
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.149
+Unexpected IOException with stream: 	at services.UserServiceTest.<init>(UserServiceTest.java:20)
+
+# Created at 2023-01-18T07:36:48.150
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.150
+Unexpected IOException with stream: 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+
+# Created at 2023-01-18T07:36:48.150
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.151
+Unexpected IOException with stream: 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+
+# Created at 2023-01-18T07:36:48.151
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.152
+Unexpected IOException with stream: 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+
+# Created at 2023-01-18T07:36:48.152
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.153
+Unexpected IOException with stream: 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+
+# Created at 2023-01-18T07:36:48.153
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.154
+Unexpected IOException with stream: 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+
+# Created at 2023-01-18T07:36:48.154
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.155
+Unexpected IOException with stream: 	at org.junit.platform.commons.util.ReflectionUtils.newInstance(ReflectionUtils.java:550)
+
+# Created at 2023-01-18T07:36:48.155
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.156
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.ConstructorInvocation.proceed(ConstructorInvocation.java:56)
+
+# Created at 2023-01-18T07:36:48.156
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.156
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+
+# Created at 2023-01-18T07:36:48.157
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.157
+Unexpected IOException with stream: 	at org.junit.jupiter.api.extension.InvocationInterceptor.interceptTestClassConstructor(InvocationInterceptor.java:73)
+
+# Created at 2023-01-18T07:36:48.158
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.158
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.ExecutableInvoker.lambda$invoke$0(ExecutableInvoker.java:105)
+
+# Created at 2023-01-18T07:36:48.159
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.159
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+
+# Created at 2023-01-18T07:36:48.160
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.160
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+
+# Created at 2023-01-18T07:36:48.161
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.162
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+
+# Created at 2023-01-18T07:36:48.162
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.163
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+
+# Created at 2023-01-18T07:36:48.163
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.164
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:104)
+
+# Created at 2023-01-18T07:36:48.164
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.165
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:77)
+
+# Created at 2023-01-18T07:36:48.165
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.166
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestClassConstructor(ClassBasedTestDescriptor.java:355)
+
+# Created at 2023-01-18T07:36:48.166
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.167
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateTestClass(ClassBasedTestDescriptor.java:302)
+
+# Created at 2023-01-18T07:36:48.167
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.168
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.descriptor.ClassTestDescriptor.instantiateTestClass(ClassTestDescriptor.java:79)
+
+# Created at 2023-01-18T07:36:48.168
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.169
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:280)
+
+# Created at 2023-01-18T07:36:48.169
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.169
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$4(ClassBasedTestDescriptor.java:272)
+
+# Created at 2023-01-18T07:36:48.170
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.170
+Unexpected IOException with stream: 	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+
+# Created at 2023-01-18T07:36:48.170
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.171
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:271)
+
+# Created at 2023-01-18T07:36:48.171
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.172
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31)
+
+# Created at 2023-01-18T07:36:48.172
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.173
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:102)
+
+# Created at 2023-01-18T07:36:48.174
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.174
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+
+# Created at 2023-01-18T07:36:48.175
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.175
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:101)
+
+# Created at 2023-01-18T07:36:48.175
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.176
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:66)
+
+# Created at 2023-01-18T07:36:48.176
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.177
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:123)
+
+# Created at 2023-01-18T07:36:48.177
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.177
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+
+# Created at 2023-01-18T07:36:48.178
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.178
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:123)
+
+# Created at 2023-01-18T07:36:48.178
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.179
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:90)
+
+# Created at 2023-01-18T07:36:48.179
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.180
+Unexpected IOException with stream: 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+# Created at 2023-01-18T07:36:48.180
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.181
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+
+# Created at 2023-01-18T07:36:48.181
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.182
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+
+# Created at 2023-01-18T07:36:48.182
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.183
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+
+# Created at 2023-01-18T07:36:48.183
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.184
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+
+# Created at 2023-01-18T07:36:48.184
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.184
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+
+# Created at 2023-01-18T07:36:48.185
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.185
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+
+# Created at 2023-01-18T07:36:48.185
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.186
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+
+# Created at 2023-01-18T07:36:48.186
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.187
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+
+# Created at 2023-01-18T07:36:48.187
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.187
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+
+# Created at 2023-01-18T07:36:48.188
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.188
+Unexpected IOException with stream: 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+# Created at 2023-01-18T07:36:48.189
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.189
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+
+# Created at 2023-01-18T07:36:48.190
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.190
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+
+# Created at 2023-01-18T07:36:48.191
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.191
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+
+# Created at 2023-01-18T07:36:48.191
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.192
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+
+# Created at 2023-01-18T07:36:48.192
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.192
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+
+# Created at 2023-01-18T07:36:48.193
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.193
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+
+# Created at 2023-01-18T07:36:48.194
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.194
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+
+# Created at 2023-01-18T07:36:48.194
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.195
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+
+# Created at 2023-01-18T07:36:48.195
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.196
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+
+# Created at 2023-01-18T07:36:48.196
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.196
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+
+# Created at 2023-01-18T07:36:48.197
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.197
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+
+# Created at 2023-01-18T07:36:48.197
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.198
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+
+# Created at 2023-01-18T07:36:48.198
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.198
+Unexpected IOException with stream: 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:220)
+
+# Created at 2023-01-18T07:36:48.199
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.199
+Unexpected IOException with stream: 	at org.junit.platform.launcher.core.DefaultLauncher.lambda$execute$6(DefaultLauncher.java:188)
+
+# Created at 2023-01-18T07:36:48.199
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.200
+Unexpected IOException with stream: 	at org.junit.platform.launcher.core.DefaultLauncher.withInterceptedStreams(DefaultLauncher.java:202)
+
+# Created at 2023-01-18T07:36:48.200
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.201
+Unexpected IOException with stream: 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:181)
+
+# Created at 2023-01-18T07:36:48.201
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.202
+Unexpected IOException with stream: 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:128)
+
+# Created at 2023-01-18T07:36:48.202
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.202
+Unexpected IOException with stream: 	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:142)
+
+# Created at 2023-01-18T07:36:48.203
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.203
+Unexpected IOException with stream: 	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:117)
+
+# Created at 2023-01-18T07:36:48.203
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.204
+Unexpected IOException with stream: 	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384)
+
+# Created at 2023-01-18T07:36:48.204
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.204
+Unexpected IOException with stream: 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
+
+# Created at 2023-01-18T07:36:48.205
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.205
+Unexpected IOException with stream: 	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
+
+# Created at 2023-01-18T07:36:48.205
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.206
+Unexpected IOException with stream: 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
+
+# Created at 2023-01-18T07:36:48.206
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:48.207
+Unexpected IOException: 5,1,services.UserServiceTest,getTrainsForUserTest,null,null,null
+
+
+# Created at 2023-01-18T07:36:48.207
+Unexpected IOException: 7,1,services.UserServiceTest,getTrainsForUserTest,null,Failed to initialize pool: FATAL: sorry\002C too many clients already,null,Failed to initialize pool: FATAL: sorry\002C too many clients already,UserServiceTest.<init>:20 \00BB PoolInitialization Failed to initialize pool: FATA...,com.zaxxer.hikari.pool.HikariPool$PoolInitializationException: Failed to initialize pool: FATAL: sorry\002C too many clients already\000A\0009at services.UserServiceTest.<init>(UserServiceTest.java:20)\000ACaused by: org.postgresql.util.PSQLException: FATAL: sorry\002C too many clients already\000A\0009at services.UserServiceTest.<init>(UserServiceTest.java:20)\000A
+
+
+# Created at 2023-01-18T07:36:48.208
+Unexpected IOException with stream: [main] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-18 - Starting...
+
+
+# Created at 2023-01-18T07:36:49.254
+Unexpected IOException with stream: [main] ERROR com.zaxxer.hikari.pool.HikariPool - HikariPool-18 - Exception during pool initialization.
+
+
+# Created at 2023-01-18T07:36:49.255
+Unexpected IOException with stream: org.postgresql.util.PSQLException: FATAL: sorry, too many clients already
+
+# Created at 2023-01-18T07:36:49.255
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.255
+Unexpected IOException with stream: 	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:659)
+
+# Created at 2023-01-18T07:36:49.256
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.256
+Unexpected IOException with stream: 	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:180)
+
+# Created at 2023-01-18T07:36:49.256
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.257
+Unexpected IOException with stream: 	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:235)
+
+# Created at 2023-01-18T07:36:49.257
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.257
+Unexpected IOException with stream: 	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:49)
+
+# Created at 2023-01-18T07:36:49.258
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.258
+Unexpected IOException with stream: 	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:247)
+
+# Created at 2023-01-18T07:36:49.259
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.259
+Unexpected IOException with stream: 	at org.postgresql.Driver.makeConnection(Driver.java:434)
+
+# Created at 2023-01-18T07:36:49.259
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.260
+Unexpected IOException with stream: 	at org.postgresql.Driver.connect(Driver.java:291)
+
+# Created at 2023-01-18T07:36:49.260
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.260
+Unexpected IOException with stream: 	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:121)
+
+# Created at 2023-01-18T07:36:49.261
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.261
+Unexpected IOException with stream: 	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+
+# Created at 2023-01-18T07:36:49.262
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.262
+Unexpected IOException with stream: 	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+
+# Created at 2023-01-18T07:36:49.262
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.263
+Unexpected IOException with stream: 	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+
+# Created at 2023-01-18T07:36:49.263
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.264
+Unexpected IOException with stream: 	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+
+# Created at 2023-01-18T07:36:49.264
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.264
+Unexpected IOException with stream: 	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+
+# Created at 2023-01-18T07:36:49.265
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.265
+Unexpected IOException with stream: 	at com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:81)
+
+# Created at 2023-01-18T07:36:49.265
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.266
+Unexpected IOException with stream: 	at db.AbstractDAO.configDManager(AbstractDAO.java:58)
+
+# Created at 2023-01-18T07:36:49.266
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.266
+Unexpected IOException with stream: 	at db.postgres.PostgresDAO.<init>(PostgresDAO.java:10)
+
+# Created at 2023-01-18T07:36:49.267
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.267
+Unexpected IOException with stream: 	at db.postgres.PostgresDAO.getInstance(PostgresDAO.java:15)
+
+# Created at 2023-01-18T07:36:49.267
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.268
+Unexpected IOException with stream: 	at services.UserServiceTest.<init>(UserServiceTest.java:20)
+
+# Created at 2023-01-18T07:36:49.268
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.268
+Unexpected IOException with stream: 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+
+# Created at 2023-01-18T07:36:49.269
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.269
+Unexpected IOException with stream: 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+
+# Created at 2023-01-18T07:36:49.269
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.270
+Unexpected IOException with stream: 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+
+# Created at 2023-01-18T07:36:49.270
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.271
+Unexpected IOException with stream: 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+
+# Created at 2023-01-18T07:36:49.271
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.272
+Unexpected IOException with stream: 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+
+# Created at 2023-01-18T07:36:49.272
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.272
+Unexpected IOException with stream: 	at org.junit.platform.commons.util.ReflectionUtils.newInstance(ReflectionUtils.java:550)
+
+# Created at 2023-01-18T07:36:49.273
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.273
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.ConstructorInvocation.proceed(ConstructorInvocation.java:56)
+
+# Created at 2023-01-18T07:36:49.273
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.274
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+
+# Created at 2023-01-18T07:36:49.274
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.274
+Unexpected IOException with stream: 	at org.junit.jupiter.api.extension.InvocationInterceptor.interceptTestClassConstructor(InvocationInterceptor.java:73)
+
+# Created at 2023-01-18T07:36:49.275
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.275
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.ExecutableInvoker.lambda$invoke$0(ExecutableInvoker.java:105)
+
+# Created at 2023-01-18T07:36:49.276
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.276
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+
+# Created at 2023-01-18T07:36:49.276
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.277
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+
+# Created at 2023-01-18T07:36:49.277
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.278
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+
+# Created at 2023-01-18T07:36:49.279
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.279
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+
+# Created at 2023-01-18T07:36:49.279
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.280
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:104)
+
+# Created at 2023-01-18T07:36:49.280
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.281
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:77)
+
+# Created at 2023-01-18T07:36:49.281
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.281
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestClassConstructor(ClassBasedTestDescriptor.java:355)
+
+# Created at 2023-01-18T07:36:49.282
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.282
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateTestClass(ClassBasedTestDescriptor.java:302)
+
+# Created at 2023-01-18T07:36:49.282
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.283
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.descriptor.ClassTestDescriptor.instantiateTestClass(ClassTestDescriptor.java:79)
+
+# Created at 2023-01-18T07:36:49.283
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.283
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:280)
+
+# Created at 2023-01-18T07:36:49.284
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.284
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$4(ClassBasedTestDescriptor.java:272)
+
+# Created at 2023-01-18T07:36:49.285
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.286
+Unexpected IOException with stream: 	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+
+# Created at 2023-01-18T07:36:49.286
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.287
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:271)
+
+# Created at 2023-01-18T07:36:49.288
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.288
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31)
+
+# Created at 2023-01-18T07:36:49.289
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.289
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:102)
+
+# Created at 2023-01-18T07:36:49.289
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.289
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+
+# Created at 2023-01-18T07:36:49.290
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.290
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:101)
+
+# Created at 2023-01-18T07:36:49.291
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.292
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:66)
+
+# Created at 2023-01-18T07:36:49.292
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.293
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:123)
+
+# Created at 2023-01-18T07:36:49.293
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.294
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+
+# Created at 2023-01-18T07:36:49.295
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.295
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:123)
+
+# Created at 2023-01-18T07:36:49.296
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.296
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:90)
+
+# Created at 2023-01-18T07:36:49.296
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.297
+Unexpected IOException with stream: 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+# Created at 2023-01-18T07:36:49.297
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.298
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+
+# Created at 2023-01-18T07:36:49.298
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.298
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+
+# Created at 2023-01-18T07:36:49.299
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.299
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+
+# Created at 2023-01-18T07:36:49.300
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.300
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+
+# Created at 2023-01-18T07:36:49.301
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.301
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+
+# Created at 2023-01-18T07:36:49.302
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.303
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+
+# Created at 2023-01-18T07:36:49.304
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.304
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+
+# Created at 2023-01-18T07:36:49.304
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.305
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+
+# Created at 2023-01-18T07:36:49.305
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.306
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+
+# Created at 2023-01-18T07:36:49.306
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.306
+Unexpected IOException with stream: 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+# Created at 2023-01-18T07:36:49.307
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.307
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+
+# Created at 2023-01-18T07:36:49.308
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.308
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+
+# Created at 2023-01-18T07:36:49.309
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.309
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+
+# Created at 2023-01-18T07:36:49.310
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.310
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+
+# Created at 2023-01-18T07:36:49.310
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.310
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+
+# Created at 2023-01-18T07:36:49.311
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.312
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+
+# Created at 2023-01-18T07:36:49.312
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.313
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+
+# Created at 2023-01-18T07:36:49.313
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.314
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+
+# Created at 2023-01-18T07:36:49.314
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.314
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+
+# Created at 2023-01-18T07:36:49.315
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.315
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+
+# Created at 2023-01-18T07:36:49.315
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.316
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+
+# Created at 2023-01-18T07:36:49.316
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.317
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+
+# Created at 2023-01-18T07:36:49.317
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.318
+Unexpected IOException with stream: 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:220)
+
+# Created at 2023-01-18T07:36:49.318
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.319
+Unexpected IOException with stream: 	at org.junit.platform.launcher.core.DefaultLauncher.lambda$execute$6(DefaultLauncher.java:188)
+
+# Created at 2023-01-18T07:36:49.319
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.319
+Unexpected IOException with stream: 	at org.junit.platform.launcher.core.DefaultLauncher.withInterceptedStreams(DefaultLauncher.java:202)
+
+# Created at 2023-01-18T07:36:49.320
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.320
+Unexpected IOException with stream: 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:181)
+
+# Created at 2023-01-18T07:36:49.321
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.321
+Unexpected IOException with stream: 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:128)
+
+# Created at 2023-01-18T07:36:49.322
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.322
+Unexpected IOException with stream: 	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:142)
+
+# Created at 2023-01-18T07:36:49.323
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.323
+Unexpected IOException with stream: 	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:117)
+
+# Created at 2023-01-18T07:36:49.323
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.324
+Unexpected IOException with stream: 	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384)
+
+# Created at 2023-01-18T07:36:49.324
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.325
+Unexpected IOException with stream: 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
+
+# Created at 2023-01-18T07:36:49.325
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.326
+Unexpected IOException with stream: 	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
+
+# Created at 2023-01-18T07:36:49.326
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.327
+Unexpected IOException with stream: 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
+
+# Created at 2023-01-18T07:36:49.327
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:49.328
+Unexpected IOException: 5,1,services.UserServiceTest,signUpTest,null,null,null
+
+
+# Created at 2023-01-18T07:36:49.329
+Unexpected IOException: 7,1,services.UserServiceTest,signUpTest,null,Failed to initialize pool: FATAL: sorry\002C too many clients already,null,Failed to initialize pool: FATAL: sorry\002C too many clients already,UserServiceTest.<init>:20 \00BB PoolInitialization Failed to initialize pool: FATA...,com.zaxxer.hikari.pool.HikariPool$PoolInitializationException: Failed to initialize pool: FATAL: sorry\002C too many clients already\000A\0009at services.UserServiceTest.<init>(UserServiceTest.java:20)\000ACaused by: org.postgresql.util.PSQLException: FATAL: sorry\002C too many clients already\000A\0009at services.UserServiceTest.<init>(UserServiceTest.java:20)\000A
+
+
+# Created at 2023-01-18T07:36:49.331
+Unexpected IOException with stream: [main] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-19 - Starting...
+
+
+# Created at 2023-01-18T07:36:50.379
+Unexpected IOException with stream: [main] ERROR com.zaxxer.hikari.pool.HikariPool - HikariPool-19 - Exception during pool initialization.
+
+
+# Created at 2023-01-18T07:36:50.380
+Unexpected IOException with stream: org.postgresql.util.PSQLException: FATAL: sorry, too many clients already
+
+# Created at 2023-01-18T07:36:50.380
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.381
+Unexpected IOException with stream: 	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:659)
+
+# Created at 2023-01-18T07:36:50.381
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.381
+Unexpected IOException with stream: 	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:180)
+
+# Created at 2023-01-18T07:36:50.382
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.382
+Unexpected IOException with stream: 	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:235)
+
+# Created at 2023-01-18T07:36:50.383
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.383
+Unexpected IOException with stream: 	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:49)
+
+# Created at 2023-01-18T07:36:50.383
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.384
+Unexpected IOException with stream: 	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:247)
+
+# Created at 2023-01-18T07:36:50.384
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.384
+Unexpected IOException with stream: 	at org.postgresql.Driver.makeConnection(Driver.java:434)
+
+# Created at 2023-01-18T07:36:50.385
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.385
+Unexpected IOException with stream: 	at org.postgresql.Driver.connect(Driver.java:291)
+
+# Created at 2023-01-18T07:36:50.385
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.386
+Unexpected IOException with stream: 	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:121)
+
+# Created at 2023-01-18T07:36:50.386
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.386
+Unexpected IOException with stream: 	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+
+# Created at 2023-01-18T07:36:50.386
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.387
+Unexpected IOException with stream: 	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+
+# Created at 2023-01-18T07:36:50.387
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.387
+Unexpected IOException with stream: 	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+
+# Created at 2023-01-18T07:36:50.388
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.388
+Unexpected IOException with stream: 	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+
+# Created at 2023-01-18T07:36:50.388
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.389
+Unexpected IOException with stream: 	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+
+# Created at 2023-01-18T07:36:50.389
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.389
+Unexpected IOException with stream: 	at com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:81)
+
+# Created at 2023-01-18T07:36:50.390
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.390
+Unexpected IOException with stream: 	at db.AbstractDAO.configDManager(AbstractDAO.java:58)
+
+# Created at 2023-01-18T07:36:50.390
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.391
+Unexpected IOException with stream: 	at db.postgres.PostgresDAO.<init>(PostgresDAO.java:10)
+
+# Created at 2023-01-18T07:36:50.391
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.391
+Unexpected IOException with stream: 	at db.postgres.PostgresDAO.getInstance(PostgresDAO.java:15)
+
+# Created at 2023-01-18T07:36:50.392
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.392
+Unexpected IOException with stream: 	at services.UserServiceTest.<init>(UserServiceTest.java:20)
+
+# Created at 2023-01-18T07:36:50.392
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.392
+Unexpected IOException with stream: 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+
+# Created at 2023-01-18T07:36:50.393
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.393
+Unexpected IOException with stream: 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+
+# Created at 2023-01-18T07:36:50.393
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.394
+Unexpected IOException with stream: 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+
+# Created at 2023-01-18T07:36:50.394
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.394
+Unexpected IOException with stream: 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+
+# Created at 2023-01-18T07:36:50.395
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.395
+Unexpected IOException with stream: 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+
+# Created at 2023-01-18T07:36:50.395
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.396
+Unexpected IOException with stream: 	at org.junit.platform.commons.util.ReflectionUtils.newInstance(ReflectionUtils.java:550)
+
+# Created at 2023-01-18T07:36:50.396
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.396
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.ConstructorInvocation.proceed(ConstructorInvocation.java:56)
+
+# Created at 2023-01-18T07:36:50.396
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.397
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+
+# Created at 2023-01-18T07:36:50.397
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.397
+Unexpected IOException with stream: 	at org.junit.jupiter.api.extension.InvocationInterceptor.interceptTestClassConstructor(InvocationInterceptor.java:73)
+
+# Created at 2023-01-18T07:36:50.398
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.398
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.ExecutableInvoker.lambda$invoke$0(ExecutableInvoker.java:105)
+
+# Created at 2023-01-18T07:36:50.398
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.399
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+
+# Created at 2023-01-18T07:36:50.399
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.399
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+
+# Created at 2023-01-18T07:36:50.400
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.400
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+
+# Created at 2023-01-18T07:36:50.400
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.400
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+
+# Created at 2023-01-18T07:36:50.401
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.401
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:104)
+
+# Created at 2023-01-18T07:36:50.401
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.402
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:77)
+
+# Created at 2023-01-18T07:36:50.402
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.402
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestClassConstructor(ClassBasedTestDescriptor.java:355)
+
+# Created at 2023-01-18T07:36:50.402
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.403
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateTestClass(ClassBasedTestDescriptor.java:302)
+
+# Created at 2023-01-18T07:36:50.403
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.403
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.descriptor.ClassTestDescriptor.instantiateTestClass(ClassTestDescriptor.java:79)
+
+# Created at 2023-01-18T07:36:50.404
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.404
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:280)
+
+# Created at 2023-01-18T07:36:50.404
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.405
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$4(ClassBasedTestDescriptor.java:272)
+
+# Created at 2023-01-18T07:36:50.405
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.405
+Unexpected IOException with stream: 	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+
+# Created at 2023-01-18T07:36:50.405
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.406
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:271)
+
+# Created at 2023-01-18T07:36:50.406
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.406
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31)
+
+# Created at 2023-01-18T07:36:50.407
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.407
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:102)
+
+# Created at 2023-01-18T07:36:50.407
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.408
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+
+# Created at 2023-01-18T07:36:50.408
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.408
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:101)
+
+# Created at 2023-01-18T07:36:50.409
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.409
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:66)
+
+# Created at 2023-01-18T07:36:50.409
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.410
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:123)
+
+# Created at 2023-01-18T07:36:50.410
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.410
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+
+# Created at 2023-01-18T07:36:50.410
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.411
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:123)
+
+# Created at 2023-01-18T07:36:50.411
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.412
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:90)
+
+# Created at 2023-01-18T07:36:50.412
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.412
+Unexpected IOException with stream: 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+# Created at 2023-01-18T07:36:50.412
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.413
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+
+# Created at 2023-01-18T07:36:50.413
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.413
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+
+# Created at 2023-01-18T07:36:50.414
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.414
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+
+# Created at 2023-01-18T07:36:50.414
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.414
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+
+# Created at 2023-01-18T07:36:50.415
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.415
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+
+# Created at 2023-01-18T07:36:50.415
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.416
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+
+# Created at 2023-01-18T07:36:50.416
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.416
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+
+# Created at 2023-01-18T07:36:50.416
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.417
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+
+# Created at 2023-01-18T07:36:50.417
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.417
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+
+# Created at 2023-01-18T07:36:50.418
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.418
+Unexpected IOException with stream: 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+# Created at 2023-01-18T07:36:50.418
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.418
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+
+# Created at 2023-01-18T07:36:50.419
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.419
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+
+# Created at 2023-01-18T07:36:50.419
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.420
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+
+# Created at 2023-01-18T07:36:50.420
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.420
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+
+# Created at 2023-01-18T07:36:50.421
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.421
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+
+# Created at 2023-01-18T07:36:50.421
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.421
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+
+# Created at 2023-01-18T07:36:50.422
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.422
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+
+# Created at 2023-01-18T07:36:50.422
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.423
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+
+# Created at 2023-01-18T07:36:50.423
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.423
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+
+# Created at 2023-01-18T07:36:50.424
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.424
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+
+# Created at 2023-01-18T07:36:50.424
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.424
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+
+# Created at 2023-01-18T07:36:50.425
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.425
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+
+# Created at 2023-01-18T07:36:50.425
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.426
+Unexpected IOException with stream: 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:220)
+
+# Created at 2023-01-18T07:36:50.426
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.426
+Unexpected IOException with stream: 	at org.junit.platform.launcher.core.DefaultLauncher.lambda$execute$6(DefaultLauncher.java:188)
+
+# Created at 2023-01-18T07:36:50.426
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.427
+Unexpected IOException with stream: 	at org.junit.platform.launcher.core.DefaultLauncher.withInterceptedStreams(DefaultLauncher.java:202)
+
+# Created at 2023-01-18T07:36:50.427
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.427
+Unexpected IOException with stream: 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:181)
+
+# Created at 2023-01-18T07:36:50.428
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.428
+Unexpected IOException with stream: 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:128)
+
+# Created at 2023-01-18T07:36:50.428
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.429
+Unexpected IOException with stream: 	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:142)
+
+# Created at 2023-01-18T07:36:50.429
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.429
+Unexpected IOException with stream: 	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:117)
+
+# Created at 2023-01-18T07:36:50.430
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.430
+Unexpected IOException with stream: 	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384)
+
+# Created at 2023-01-18T07:36:50.430
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.431
+Unexpected IOException with stream: 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
+
+# Created at 2023-01-18T07:36:50.431
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.431
+Unexpected IOException with stream: 	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
+
+# Created at 2023-01-18T07:36:50.432
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.432
+Unexpected IOException with stream: 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
+
+# Created at 2023-01-18T07:36:50.432
+Unexpected IOException with stream: 
+
+
+# Created at 2023-01-18T07:36:50.433
+Unexpected IOException: 5,1,services.UserServiceTest,logInTest,null,null,null
+
+
+# Created at 2023-01-18T07:36:50.434
+Unexpected IOException: 7,1,services.UserServiceTest,logInTest,null,Failed to initialize pool: FATAL: sorry\002C too many clients already,null,Failed to initialize pool: FATAL: sorry\002C too many clients already,UserServiceTest.<init>:20 \00BB PoolInitialization Failed to initialize pool: FATA...,com.zaxxer.hikari.pool.HikariPool$PoolInitializationException: Failed to initialize pool: FATAL: sorry\002C too many clients already\000A\0009at services.UserServiceTest.<init>(UserServiceTest.java:20)\000ACaused by: org.postgresql.util.PSQLException: FATAL: sorry\002C too many clients already\000A\0009at services.UserServiceTest.<init>(UserServiceTest.java:20)\000A
+
+
+# Created at 2023-01-18T07:36:50.434
+Unexpected IOException: 2,1,org.apache.maven.surefire.junitplatform.JUnitPlatformProvider,services.UserServiceTest,null,null,null
+
+

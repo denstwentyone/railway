@@ -8,7 +8,7 @@
     <div class="row ml-1">
         <div class="col-sm-3">
         <form action="/railway/controller?action=prev&view=${view}&value=${trainsvalue}&trainsroute=${trainsroute}" method="post">
-            <input type="submit" value="prev">
+            <input class="btn btn-default bg-secondary text-white m-1" type="submit" value="prev">
         </form>
         </div>
         <div class="col-sm-3">
@@ -16,7 +16,7 @@
         </div>
         <div class="col-sm-3">
         <form action="/railway/controller?action=next&view=${view}&value=${trainsvalue}&trainsroute=${trainsroute}" method="post">
-            <input type="submit" value="next">
+            <input class="btn btn-default bg-secondary text-white m-1" type="submit" value="next">
         </form>
         </div>
     </div>
@@ -26,12 +26,23 @@
     <form action="/railway/controller?action=addtrain" method="post">
         <p>${rb.getString("route")}</p> 
         <select name="route">
-            <c:forEach var="route" items="${routes}">
+            <c:forEach var="route" items="${selectroutes}">
                 <option value="${route.getId()}">${route.toString()}</option>
             </c:forEach>
         </select> 
+        <div class="row ml-1">
+            <div class="col-sm-3">
+                <a class="btn btn-default bg-secondary text-white m-1" href="/railway/controller?action=prev&view=${view}&value=selectroutes">prev</a>
+            </div>
+            <div class="col-sm-3">
+                <a>${selectroutespage}</a>
+            </div>
+            <div class="col-sm-3">
+                <a class="btn btn-default bg-secondary text-white m-1" href="/railway/controller?action=next&view=${view}&value=selectroutes">next</a>
+            </div>
+        </div>
         <p>${rb.getString("date")}</p> <input name="date" type="date"/>
         <p>${rb.getString("cost")}</p> <input name="cost" type="number"/>
-        <input type="submit" value="${rb.getString("add")}">
+        <input class="btn btn-default bg-secondary text-white m-1" type="submit" value="${rb.getString("add")}">
     </form>
 </c:if>

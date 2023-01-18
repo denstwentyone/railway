@@ -14,10 +14,19 @@ public class UserService implements Service {
     
     private static AbstractDAO dao;
 
+    /**
+     * @param dao
+     */
     public UserService(AbstractDAO dao) {
         UserService.dao = dao;
     }
 
+    /**
+     * @param email
+     * @param password
+     * @return
+     * @throws Exception
+     */
     public boolean signUp(String email, String password) throws Exception {
         if (isValidPassword(password)) {
             try {
@@ -33,6 +42,12 @@ public class UserService implements Service {
         }
     }
 
+    /**
+     * @param email
+     * @param password
+     * @return
+     * @throws SQLException
+     */
     public Optional<User> login(String email, String password) throws SQLException {
         try {
             return dao.logIn(email, password);
@@ -42,6 +57,12 @@ public class UserService implements Service {
         }
     }
 
+    /**
+     * @param userEmail
+     * @param page
+     * @return
+     * @throws SQLException
+     */
     public List<Train> getTickets(String userEmail, Integer page) throws SQLException {
         if (userEmail == null) {
             return null;
@@ -49,6 +70,10 @@ public class UserService implements Service {
         return dao.getTrainsForUser(dao.getUser(userEmail).get(), page);
     }
 
+    /**
+     * @param password
+     * @return
+     */
     private static boolean isValidPassword(String password) {
   
         // Regex to check valid password.

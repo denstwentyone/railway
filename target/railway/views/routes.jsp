@@ -9,7 +9,7 @@
 <div class="row ml-1">
         <div class="col-sm-3">
         <form action="/railway/controller?action=prev&view=${view}&value=routes" method="post">
-            <input type="submit" value="prev">
+            <input class="btn btn-default bg-secondary text-white m-1" type="submit" value="prev">
         </form>
         </div>
         <div class="col-sm-3">
@@ -17,7 +17,7 @@
         </div>
         <div class="col-sm-3">
         <form action="/railway/controller?action=next&view=${view}&value=routes" method="post">
-            <input type="submit" value="next">
+            <input class="btn btn-default bg-secondary text-white m-1" type="submit" value="next">
         </form>
         </div>
     </div>
@@ -26,21 +26,20 @@
     <form action="/railway/controller?action=addroute" method="post">
         <p>${rb.getString("startingstation")}</p> 
         <select name="startingstation">
-            <c:forEach var="station" items="${stations}">
-                <%-- <input type="hidden" name="startingstationID" value="${station.getId()}" /> --%>
+            <c:forEach var="station" items="${allstations}">
                 <option value="${station.getId()}">
                     ${station.toString()}
                 </option>
             </c:forEach>
         </select> 
-        <p>${rb.getString("startingtime")}</p> <input name="startingtime" type="time" step="2"/>
+        <p>${rb.getString("startingtime")}</p> <input name="startingtime" type="time" step="1"/>
         <p>${rb.getString("finalstation")}</p> 
         <select name="finalstation">
-            <c:forEach var="station" items="${stations}">
+            <c:forEach var="station" items="${allstations}">
                 <option value="${station.getId()}">${station.toString()}</option>
             </c:forEach>
         </select> 
-        <p>${rb.getString("finaltime")}</p> <input name="finaltime" type="time" step="2"/>
-        <input type="submit" value="${rb.getString("add")}">
+        <p>${rb.getString("finaltime")}</p> <input name="finaltime" type="time" step="1"/>
+        <input class="btn btn-default bg-secondary text-white m-1" type="submit" value="${rb.getString("add")}">
     </form>
 </c:if>

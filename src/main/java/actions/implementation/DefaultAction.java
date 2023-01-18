@@ -20,9 +20,13 @@ public class DefaultAction implements Action {
             request.getSession().setAttribute("routes", trainService.getAllRoutes(1));
             request.getSession().setAttribute("routespage", 1);
 
+            request.getSession().setAttribute("selectroutes", trainService.getAllRoutes(1));
+            request.getSession().setAttribute("selectroutespage", 1);
+
             request.getSession().setAttribute("stations", trainService.getAllStations(1));
             request.getSession().setAttribute("stationspage", 1);
 
+            request.getSession().setAttribute("allstations", trainService.getAllStations());
 
             return "index.jsp";
         } catch (Exception e) {

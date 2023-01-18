@@ -25,14 +25,6 @@ public class Train implements Serializable {
         return route.getFinalTime() + " - " + route.getStartingTime();
     }
 
-    
-
-    // TODO
-    // public int reserveSeats(int amount) {
-    //     seats -= amount;
-    //     return seats;
-    // }
-
     public Route getRoute() {
         return route;
     }
