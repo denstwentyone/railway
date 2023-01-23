@@ -406,4 +406,22 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
         } 
         return result;
     }
+
+    public List<Route> getRoutesByStations(Long from, Long to) throws SQLException  {
+        List<Route> result = new ArrayList<>();
+        try (Connection connection = dataSource.getConnection();
+        PreparedStatement statement = connection.prepareStatement(DBConstants.GET_ROUTES_BY_STATIONS);) {
+            int k = 0;
+            statement.setLong(++k, from);
+            statement.setLong(++k, to);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                mapRoute(result, resultSet);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new SQLException("Something went wrong while getting trains information");
+        }
+        return result;
+    } 
 }

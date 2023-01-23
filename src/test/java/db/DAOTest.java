@@ -1,27 +1,24 @@
 package db;
+import static org.mockito.Mockito.mock;
+
 import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.Time;
 import java.util.List;
 import java.util.Optional;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
 
 import db.entities.Route;
 import db.entities.Station;
 import db.entities.Ticket;
 import db.entities.Train;
 import db.entities.User;
-import db.postgres.PostgresDAO;
 
 public class DAOTest {
     
-    @Mock
-    AbstractDAO dao = PostgresDAO.getInstance();
+    AbstractDAO dao = mock(AbstractDAO.class);
 
     List<Station> stations = List.of(new Station("Station name(1)", "City(1)"), 
                                     new Station("Station name(2)", "City(2)"),
@@ -37,11 +34,6 @@ public class DAOTest {
     User user = new User(1L, "email", "password");
 
     Ticket ticket = new Ticket(1L, 1L);
-
-    @BeforeEach
-    public void setup() {
-        MockitoAnnotations.initMocks(this);
-   }
 
     @Test
     public void getAllStationsTest() {

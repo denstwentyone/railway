@@ -123,4 +123,14 @@ public class TrainService implements Service {
     public void addTrain(Long route, String date, Double cost) throws SQLException {
         dao.addTrain(route, Date.valueOf(date), cost);
     }
+
+    /**
+     * @param from
+     * @param to
+     * @return
+     * @throws SQLException
+     */
+    public List<Route> searchForRoute(String from, String to) throws SQLException {
+        return dao.getRoutesByStations(Long.parseLong(from), Long.parseLong(to));
+    }
 }

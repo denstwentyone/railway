@@ -1,8 +1,10 @@
 c:\Users\sulyt\myprojects\RailwayTicketOffice\railway\src\main\java\actions\implementation\GetRouteTrains.java
+c:\Users\sulyt\myprojects\RailwayTicketOffice\railway\src\main\java\util\Validation.java
 c:\Users\sulyt\myprojects\RailwayTicketOffice\railway\src\main\java\services\UserService.java
 c:\Users\sulyt\myprojects\RailwayTicketOffice\railway\src\main\java\db\entities\Route.java
 c:\Users\sulyt\myprojects\RailwayTicketOffice\railway\src\main\java\filters\EncodingFilter.java
 c:\Users\sulyt\myprojects\RailwayTicketOffice\railway\src\main\java\actions\implementation\LogOutAction.java
+c:\Users\sulyt\myprojects\RailwayTicketOffice\railway\src\main\java\actions\implementation\SearchAction.java
 c:\Users\sulyt\myprojects\RailwayTicketOffice\railway\src\main\java\actions\implementation\pagination\PrevAction.java
 c:\Users\sulyt\myprojects\RailwayTicketOffice\railway\src\main\java\services\Service.java
 c:\Users\sulyt\myprojects\RailwayTicketOffice\railway\src\main\java\db\entities\Ticket.java
@@ -12,6 +14,7 @@ c:\Users\sulyt\myprojects\RailwayTicketOffice\railway\src\main\java\db\dao\UserD
 c:\Users\sulyt\myprojects\RailwayTicketOffice\railway\src\main\java\db\postgres\PostgresDAO.java
 c:\Users\sulyt\myprojects\RailwayTicketOffice\railway\src\main\java\actions\implementation\AddTrainAction.java
 c:\Users\sulyt\myprojects\RailwayTicketOffice\railway\src\main\java\actions\implementation\OrderAction.java
+c:\Users\sulyt\myprojects\RailwayTicketOffice\railway\src\main\java\filters\AutorizationFilter.java
 c:\Users\sulyt\myprojects\RailwayTicketOffice\railway\src\main\java\actions\implementation\ChangeLocaleAction.java
 c:\Users\sulyt\myprojects\RailwayTicketOffice\railway\src\main\java\filters\LocaleFilter.java
 c:\Users\sulyt\myprojects\RailwayTicketOffice\railway\src\main\java\db\entities\User.java

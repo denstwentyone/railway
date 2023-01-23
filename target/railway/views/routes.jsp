@@ -4,23 +4,42 @@
 
 <hr>
 <h2>${rb.getString("routes")}</h2>
+<%-- <form action="/railway/controller?action=search" method="post">
+    <label>${rb.getString("from")}</label>
+    <select name="from">
+        <c:forEach var="station" items="${allstations}">
+            <option value="${station.getId()}">
+                ${station.toString()}
+            </option>
+        </c:forEach>
+    </select> 
+    <label>${rb.getString("to")}</label>
+    <select name="to">
+        <c:forEach var="station" items="${allstations}">
+            <option value="${station.getId()}">
+                ${station.toString()}
+            </option>
+        </c:forEach>
+    </select> 
+    <input class="btn btn-default bg-secondary text-white m-1" type="submit" value="${rb.getString("search")}">
+</form> --%>
 <my:routesTable routes="${routes}" />
 
 <div class="row ml-1">
-        <div class="col-sm-3">
-        <form action="/railway/controller?action=prev&view=${view}&value=routes" method="post">
-            <input class="btn btn-default bg-secondary text-white m-1" type="submit" value="prev">
-        </form>
-        </div>
-        <div class="col-sm-3">
-        <a>${routespage}</a>
-        </div>
-        <div class="col-sm-3">
-        <form action="/railway/controller?action=next&view=${view}&value=routes" method="post">
-            <input class="btn btn-default bg-secondary text-white m-1" type="submit" value="next">
-        </form>
-        </div>
+    <div class="col-sm-3">
+    <form action="/railway/controller?action=prev&view=${view}&value=routes" method="post">
+        <input class="btn btn-default bg-secondary text-white m-1" type="submit" value="prev">
+    </form>
     </div>
+    <div class="col-sm-3">
+    <a>${routespage}</a>
+    </div>
+    <div class="col-sm-3">
+    <form action="/railway/controller?action=next&view=${view}&value=routes" method="post">
+        <input class="btn btn-default bg-secondary text-white m-1" type="submit" value="next">
+    </form>
+    </div>
+</div>
 <c:if test = "${role == 'admin'}">
     <h3>${rb.getString("addroute")}</h3>
     <form action="/railway/controller?action=addroute" method="post">

@@ -1,10 +1,12 @@
 package services;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.mock;
+
 import java.util.List;
 import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 
 import db.entities.Route;
@@ -12,12 +14,11 @@ import db.entities.Station;
 import db.entities.Ticket;
 import db.entities.Train;
 import db.entities.User;
-import db.postgres.PostgresDAO;
 
 public class UserServiceTest {
     
-    @Mock
-    UserService userService = new UserService(PostgresDAO.getInstance());
+    UserService userService = mock(UserService.class);
+
 
     List<Station> stations = List.of(new Station("Station name(1)", "City(1)"), 
                                     new Station("Station name(2)", "City(2)"),
@@ -64,7 +65,7 @@ public class UserServiceTest {
     }
 
     @Test
-    public void getTrainsForUserTest() {
+    public void getTicketsTest() {
         try {
             Mockito.when(userService.getTickets("email", 1)).thenReturn(List.of(trains.get(0), 
                                                                                 trains.get(1)));
@@ -72,8 +73,8 @@ public class UserServiceTest {
             
             List<Train> result = userService.getTickets("email", 1);
 
-            assert(result.get(0).equals(trains.get(0)));
-            assert(result.get(1).equals(trains.get(1)));
+            assertEquals(result.get(0), trains.get(0));
+            assertEquals(result.get(1), trains.get(1));
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

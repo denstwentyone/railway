@@ -1,23 +1,21 @@
 package services;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.mock;
+
 import java.util.List;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
 
 import db.entities.Route;
 import db.entities.Station;
 import db.entities.Ticket;
 import db.entities.Train;
-import db.postgres.PostgresDAO;
 
 public class TrainServiceTest {
     
-    @Mock
-    TrainService trainService = new TrainService(PostgresDAO.getInstance());
+    TrainService trainService = mock(TrainService.class);
 
     List<Station> stations = List.of(new Station("Station name(1)", "City(1)"), 
                                     new Station("Station name(2)", "City(2)"),
@@ -32,11 +30,6 @@ public class TrainServiceTest {
 
     Ticket ticket = new Ticket(1L, 1L);
 
-    @BeforeEach
-    public void setup() {
-        MockitoAnnotations.initMocks(this);
-    }
-
     @Test
     public void getAllTrainsTest() {
         try {
@@ -44,8 +37,8 @@ public class TrainServiceTest {
 
             List<Train> result = trainService.getAllTrains(1);
 
-            assert(result.get(0).equals(trains.get(0)));
-            assert(result.get(1).equals(trains.get(1)));
+            assertEquals(result.get(0), trains.get(0));
+            assertEquals(result.get(1), trains.get(1));
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -61,8 +54,8 @@ public class TrainServiceTest {
             
             List<Route> result = trainService.getAllRoutes(1);
 
-            assert(result.get(0).equals(routes.get(0)));
-            assert(result.get(1).equals(routes.get(1)));
+            assertEquals(result.get(0), routes.get(0));
+            assertEquals(result.get(1), routes.get(1));
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -78,8 +71,8 @@ public class TrainServiceTest {
             
             List<Station> result = trainService.getAllStations(1);
 
-            assert(result.get(0).equals(stations.get(0)));
-            assert(result.get(1).equals(stations.get(1)));
+            assertEquals(result.get(0), stations.get(0));
+            assertEquals(result.get(1), stations.get(1));
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -93,7 +86,7 @@ public class TrainServiceTest {
             
             Ticket result = trainService.order(1L, "email");
 
-            assert(result.equals(ticket));
+            assertEquals(result, ticket);
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

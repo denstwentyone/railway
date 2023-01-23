@@ -22,11 +22,13 @@
             <td>${route.getFinalTime()}</td>
             <td>
                 <c:if test = "${role == 'customer'}">
+                
                     <form action="/railway/controller?action=routetrains" method="post">
                         <input type="hidden" name="route" value="${route.getId()}"/>
                         <input class="btn btn-default bg-secondary text-white m-1" type="submit" value="go to trains"/>
                     </form>
                 </c:if>
+
             </td>
 
         </tr>

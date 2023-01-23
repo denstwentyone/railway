@@ -1,6 +1,7 @@
 actions\implementation\OrderAction.class
 db\derby\DerbyDAO.class
 actions\implementation\pagination\NextAction.class
+actions\implementation\SearchAction.class
 db\entities\Ticket.class
 actions\implementation\AddStationAction.class
 controller\Controller.class
@@ -29,3 +30,4 @@ actions\implementation\GetRouteTrains.class
 db\entities\Route.class
 db\postgres\PostgresDAO.class
 actions\implementation\AddTrainAction.class
+util\Validation.class

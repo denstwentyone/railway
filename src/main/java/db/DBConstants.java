@@ -27,6 +27,12 @@ public abstract class DBConstants {
                                         + "join station s1 on s1.id = r.\"startingStation\""
                                         + "join station s2 on s2.id = r.\"finalStation\" LIMIT 3 OFFSET 3*(?-1)";
 
+    public static String GET_ROUTES_BY_STATIONS = "SELECT s1.name as startingName, s1.city as startingCity, \"startingTime\"," 
+                                        + "s2.name as finalName, s2.city as finalCity, \"finalTime\", r.id "
+                                        + "FROM route r "
+                                        + "join station s1 on s1.id = r.\"startingStation\""
+                                        + "join station s2 on s2.id = r.\"finalStation\" WHERE s1.id = ? AND s2.id = ?";
+
     public static String GET_ALL_STATIONS = "SELECT * FROM station LIMIT 3 OFFSET 3*(?-1)";
 
     public static String GET_ALL_STATIONS_NO_PAGINATION = "SELECT * FROM station";
