@@ -9,7 +9,7 @@
     <body class="p-3 mb-2 ">
 
         <div class="container">
-            <h2>>${rb.getString("success")}</h2>
+            <h2>${rb.getString("success")}</h2>
         </div>
     </body>
 </html>

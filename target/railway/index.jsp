@@ -1,8 +1,10 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <c:set var="view" scope = "session" value="index.jsp"/>
 <c:set var="trainsvalue" scope = "session" value="trains"/>
+
 <html>
     <head>
         <meta charset="utf-8">

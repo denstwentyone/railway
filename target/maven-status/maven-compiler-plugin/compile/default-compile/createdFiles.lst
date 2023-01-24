@@ -21,12 +21,14 @@ filters\LocaleFilter.class
 db\DBConstants.class
 db\entities\Station.class
 services\UserService.class
+filters\constants\PathConstants.class
 actions\implementation\LogInAction.class
 actions\implementation\pagination\PrevAction.class
 db\entities\Train.class
 actions\ActionFactory.class
 actions\implementation\DefaultAction.class
 actions\implementation\GetRouteTrains.class
+filters\AuthorizationFilter.class
 db\entities\Route.class
 db\postgres\PostgresDAO.class
 actions\implementation\AddTrainAction.class
