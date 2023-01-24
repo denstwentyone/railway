@@ -12,6 +12,8 @@ import java.sql.Time;
 import java.sql.Date;
 import java.util.*;
 
+import org.apache.log4j.Logger;
+
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
@@ -27,7 +29,10 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
 
     private static HikariDataSource dataSource;
 
+    final static Logger LOGGER = Logger.getLogger(AbstractDAO.class.getName());
+
     protected AbstractDAO() {
+        
     }
 
     /**
@@ -79,6 +84,7 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
             
         } catch (SQLException e) {
             e.printStackTrace();
+            LOGGER.error(e);
             throw new SQLException("Something went wrong while getting trains information");
         } 
         return result;
@@ -118,6 +124,7 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            LOGGER.error(e);
             throw new SQLException("Something went wrong while getting route information");
         } 
         return result;
@@ -160,6 +167,7 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            LOGGER.error(e);
             throw new SQLException("Something went wrong while getting station information");
 
         } 
@@ -183,9 +191,11 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            LOGGER.error(e);
             throw new SQLException("Something went wrong while getting station information");
 
         } 
+        
         return result;
     }
 
@@ -207,6 +217,7 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
             
         } catch (SQLException e) {
             e.printStackTrace();
+            LOGGER.error(e);
             throw new SQLException("Something went wrong while getting trains information");
         } 
         return result;
@@ -232,6 +243,7 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
                 return 0;
         } catch (Exception e) {
             e.printStackTrace();
+            LOGGER.error(e);
             throw new SQLException("Something went wrong while adding train information");
 
         }
@@ -257,6 +269,7 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
                 return 0;
         } catch (Exception e) {
             e.printStackTrace();
+            LOGGER.error(e);
             throw new SQLException("Something went wrong while adding route information");
 
         }
@@ -280,6 +293,7 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
                 return 0;
         } catch (Exception e) {
             e.printStackTrace();
+            LOGGER.error(e);
             throw new SQLException("Something went wrong while adding station information");
 
         }
@@ -305,6 +319,7 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
                 return 0;
         } catch (Exception e) {
             e.printStackTrace();
+            LOGGER.error(e);
             throw new SQLException("Something went wrong while sign up");
 
         }
@@ -331,6 +346,7 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
                 return result;
         } catch (Exception e) {
             e.printStackTrace();
+            LOGGER.error(e);
             throw new SQLException("Something went wrong while log in");
 
         }
@@ -354,6 +370,7 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
                 throw new SQLException("Something went wrong while adding order information");
         } catch (Exception e) {
             e.printStackTrace();
+            LOGGER.error(e);
             throw new SQLException("Something went wrong while adding order information");
 
         }
@@ -378,6 +395,7 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            LOGGER.error(e);
             throw new SQLException("Something went wrong while getting user information");
 
         } 
@@ -402,6 +420,7 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
             
         } catch (SQLException e) {
             e.printStackTrace();
+            LOGGER.error(e);
             throw new SQLException("Something went wrong while getting trains information");
         } 
         return result;
@@ -420,6 +439,7 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
             }
         } catch (Exception e) {
             e.printStackTrace();
+            LOGGER.error(e);
             throw new SQLException("Something went wrong while getting trains information");
         }
         return result;

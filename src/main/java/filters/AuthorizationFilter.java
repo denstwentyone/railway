@@ -20,7 +20,6 @@ public class AuthorizationFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         role = (String) req.getSession().getAttribute("role");
         if (isAccessDenied(req)) {
-            System.out.println(role);
             req.getRequestDispatcher("/errorpage.jsp").forward(request, response);
         }
         chain.doFilter(request, response);
