@@ -10,6 +10,7 @@ import db.entities.Route;
 import db.entities.Station;
 import db.entities.Ticket;
 import db.entities.Train;
+import static util.Validation.*;
 
 public class TrainService implements Service {
 
@@ -108,20 +109,31 @@ public class TrainService implements Service {
      * @param startingTime
      * @param finalStation
      * @param finalTime
-     * @throws SQLException
+     * @throws Exception
      */
-    public void addRoute(Long startingStation, String startingTime, Long finalStation, String finalTime) throws SQLException {
-        dao.addRoute(startingStation, Time.valueOf(startingTime), finalStation, Time.valueOf(finalTime));
+    public void addRoute(Long startingStation, String startingTime, Long finalStation, String finalTime) throws Exception {
+        if (isTimeValid(startingTime) && isTimeValid(finalTime)) {
+            dao.addRoute(startingStation, Time.valueOf(startingTime), finalStation, Time.valueOf(finalTime));
+            
+        }
+        else {
+            throw new Exception("invalid time");
+        }
     }
 
     /**
      * @param route
      * @param date
      * @param cost
-     * @throws SQLException
+     * @throws Exception
      */
-    public void addTrain(Long route, String date, Double cost) throws SQLException {
-        dao.addTrain(route, Date.valueOf(date), cost);
+    public void addTrain(Long route, String date, Double cost) throws Exception {
+        if (isDateValid(date)) {
+            dao.addTrain(route, Date.valueOf(date), cost);
+        }
+        else {
+            throw new Exception("invalid date");
+        }
     }
 
     /**

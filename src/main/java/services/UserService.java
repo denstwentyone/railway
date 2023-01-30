@@ -7,7 +7,7 @@ import java.util.Optional;
 import db.AbstractDAO;
 import db.entities.Train;
 import db.entities.User;
-import util.Validation;
+import static util.Validation.*;
 
 public class UserService implements Service {
     
@@ -27,7 +27,7 @@ public class UserService implements Service {
      * @throws Exception
      */
     public boolean signUp(String email, String password) throws Exception {
-        if (Validation.isPasswordValid(password) && Validation.isEmailValid(email)) {
+        if (isPasswordValid(password) && isEmailValid(email)) {
             try {
                 dao.signUp(email, password);
             } catch (Exception e) {
@@ -63,9 +63,10 @@ public class UserService implements Service {
      * @throws SQLException
      */
     public List<Train> getTickets(String userEmail, Integer page) throws SQLException {
-        if (userEmail == null) {
-            return null;
+        if (isEmailValid(userEmail)) {
+            return dao.getTrainsForUser(dao.getUser(userEmail).get(), page);
+            
         }
-        return dao.getTrainsForUser(dao.getUser(userEmail).get(), page);
+        return null;
     }
 }
