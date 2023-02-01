@@ -100,12 +100,13 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
         String date = resultSet.getString("date");
         Double cost = resultSet.getDouble("cost");
         int number = resultSet.getInt("id");
+        int seats = resultSet.getInt("seats");
 
         result.add(new Train(new Route(new Station(startingName, startingCity),
                 startingTime,
                 new Station(finalName, finalCity),
                 finalTime),
-                date, number, cost));
+                date, number, cost, seats));
     }
 
     /* (non-Javadoc)
@@ -227,13 +228,14 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
      * @see db.dao.TrainDAO#addTrain(java.lang.Long, java.sql.Date, java.lang.Double)
      */
     @Override
-    public long addTrain(Long route, Date date, Double cost) throws SQLException {
+    public long addTrain(Long route, Date date, Double cost, int seats) throws SQLException {
         try (Connection connection = dataSource.getConnection();
             PreparedStatement statement = connection.prepareStatement(DBConstants.INSERT_TRAIN, Statement.RETURN_GENERATED_KEYS)) {
                 int k = 0;
                 statement.setLong(++k, route);
                 statement.setDate(++k, date);
                 statement.setDouble(++k, cost);
+                statement.setInt(++k, seats);
                 statement.executeUpdate();
                 statement.getGeneratedKeys();
                 ResultSet keys = statement.getGeneratedKeys();
@@ -443,5 +445,23 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
             throw new SQLException("Something went wrong while getting trains information");
         }
         return result;
-    } 
+    }
+
+    @Override
+    public Integer getReservedSeats(long trainId) throws SQLException {
+        try (Connection connection = dataSource.getConnection();
+        PreparedStatement statement = connection.prepareStatement(DBConstants.COUNT_TICKETS);) {
+            int k = 0;
+            statement.setLong(++k, trainId);
+            ResultSet resultSet = statement.executeQuery();
+            resultSet.next();
+            return resultSet.getInt(1);
+        } catch (Exception e) {
+            e.printStackTrace();
+            LOGGER.error(e);
+            throw new SQLException("Something went wrong while getting seats information");
+        }
+    }
+
+    
 }

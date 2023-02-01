@@ -84,15 +84,21 @@ public class TrainService implements Service {
      * @return
      * @throws Exception
      */
-    public Ticket order(long trainId, String userEmail) throws Exception  {
-        try {
-            Ticket ticket = dao.addTicket(trainId, dao.getUser(userEmail).get().getId());
-
-            return ticket;
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new Exception("you cant order two tickets for one person");
+    public Ticket order(long trainId, String userEmail, int seats) throws Exception  {
+        
+        Integer reservedSeats = dao.getReservedSeats(trainId);
+        System.out.println(reservedSeats);
+        if (reservedSeats < seats) {
+            try {
+                Ticket ticket = dao.addTicket(trainId, dao.getUser(userEmail).get().getId());
+                return ticket;
+            } catch (Exception e) {
+                e.printStackTrace();
+                throw new Exception("you cant order two tickets for one person");
+            }
         }
+        throw new Exception("All seats have been reserved");
+        
     }
 
     /**
@@ -127,9 +133,9 @@ public class TrainService implements Service {
      * @param cost
      * @throws Exception
      */
-    public void addTrain(Long route, String date, Double cost) throws Exception {
+    public void addTrain(Long route, String date, Double cost, int seats) throws Exception {
         if (isDateValid(date)) {
-            dao.addTrain(route, Date.valueOf(date), cost);
+            dao.addTrain(route, Date.valueOf(date), cost, seats);
         }
         else {
             throw new Exception("invalid date");

@@ -28,8 +28,8 @@ public class UserServiceTest {
     List<Route> routes = List.of(new Route(stations.get(0), "12:00:00", stations.get(1), "12:00:00"),
                                 new Route(stations.get(2), "12:00:00", stations.get(3), "12:00:00"));
 
-    List<Train> trains = List.of(new Train(routes.get(0), "01.01.2023", 50.5),
-                                new Train(routes.get(1), "01.01.2023", 50.5));
+    List<Train> trains = List.of(new Train(routes.get(0), "01.01.2023", 1, 50.5, 200),
+                                new Train(routes.get(1), "01.01.2023", 1, 50.5, 200));
 
     User user = new User(1L, "email", "password");
 

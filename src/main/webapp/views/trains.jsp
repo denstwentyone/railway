@@ -42,7 +42,8 @@
             </div>
         </div>
         <p>${rb.getString("date")}</p> <input name="date" type="date"/>
-        <p>${rb.getString("cost")}</p> <input name="cost" type="number"/>
+        <p>${rb.getString("cost")}</p> <input name="cost" type="number" step="0.01"/>
+        <p>${rb.getString("seats")}</p> <input name="seats" type="number"/>
         <input class="btn btn-default bg-secondary text-white m-1" type="submit" value="${rb.getString("add")}">
     </form>
 </c:if>

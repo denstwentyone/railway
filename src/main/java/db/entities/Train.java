@@ -7,18 +7,14 @@ public class Train implements Serializable {
     private String date;
     private int number;
     private Double cost;
+    private int seats;
     
-    public Train(Route route, String date, int number, Double cost) {
+    public Train(Route route, String date, int number, Double cost, int seats) {
         this.route = route;
         this.date = date;
         this.number = number;
         this.cost = cost;
-    }
-
-    public Train(Route route, String date, Double cost) {
-        this.route = route;
-        this.date = date;
-        this.cost = cost;
+        this.seats = seats;
     }
 
     public String getTravelTime() {
@@ -39,6 +35,10 @@ public class Train implements Serializable {
 
     public Double getCost() {
         return cost;
+    }
+
+    public int getSeats() {
+        return seats;
     }
 
     @Override
@@ -86,6 +86,5 @@ public class Train implements Serializable {
             return false;
         return true;
     }
-    
     
 }

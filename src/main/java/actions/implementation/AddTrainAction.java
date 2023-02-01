@@ -11,7 +11,8 @@ public class AddTrainAction implements Action {
         Long route = Long.parseLong(request.getParameter("route"));
         String date = request.getParameter("date");
         Double cost = Double.parseDouble(request.getParameter("cost"));
-        trainService.addTrain(route, date, cost);
+        int seats = Integer.parseInt(request.getParameter("seats"));
+        trainService.addTrain(route, date, cost, seats);
         return "/railway";
     }
     

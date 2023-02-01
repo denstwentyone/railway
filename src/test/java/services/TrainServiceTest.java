@@ -25,8 +25,8 @@ public class TrainServiceTest {
     List<Route> routes = List.of(new Route(stations.get(0), "12:00:00", stations.get(1), "12:00:00"),
                                 new Route(stations.get(2), "12:00:00", stations.get(3), "12:00:00"));
 
-    List<Train> trains = List.of(new Train(routes.get(0), "01.01.2023", 50.5),
-                                new Train(routes.get(1), "01.01.2023", 50.5));
+    List<Train> trains = List.of(new Train(routes.get(0), "01.01.2023", 1, 50.5, 200),
+                                new Train(routes.get(1), "01.01.2023", 1, 50.5, 200));
 
     Ticket ticket = new Ticket(1L, 1L);
 
@@ -82,9 +82,9 @@ public class TrainServiceTest {
    @Test
     public void orderTest() {
         try {
-            Mockito.when(trainService.order(1L, "email")).thenReturn(ticket);
+            Mockito.when(trainService.order(1L, "email", 200)).thenReturn(ticket);
             
-            Ticket result = trainService.order(1L, "email");
+            Ticket result = trainService.order(1L, "email", 200);
 
             assertEquals(result, ticket);
         } catch (Exception e) {

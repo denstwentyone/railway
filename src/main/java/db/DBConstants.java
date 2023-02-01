@@ -7,7 +7,7 @@ public abstract class DBConstants {
 
     public static String GET_ALL_TRAINS = "SELECT r.\"startingTime\", ss.name startingName, ss.city startingCity, " +
                                             "r.\"finalTime\", sf.name finalName, sf.city finalCity, " + 
-                                            "t.date, t.cost, t.id " + 
+                                            "t.date, t.cost, t.id, t.seats " + 
                                             "FROM train t " + 
                                             "join route r on t.route = r.id " + 
                                             "join station ss on ss.id = r.\"startingStation\" " + 
@@ -15,7 +15,7 @@ public abstract class DBConstants {
 
     public static String GET_TRAINS_BY_ROUTE_ID = "SELECT r.\"startingTime\", ss.name startingName, ss.city startingCity, " +
                                             "r.\"finalTime\", sf.name finalName, sf.city finalCity, " + 
-                                            "t.date, t.cost, t.id " + 
+                                            "t.date, t.cost, t.id, t.seats " + 
                                             "FROM train t " + 
                                             "join route r on t.route = r.id " + 
                                             "join station ss on ss.id = r.\"startingStation\" " + 
@@ -41,7 +41,7 @@ public abstract class DBConstants {
 
     public static String INSERT_ROUTE = "INSERT INTO route(\"startingStation\", \"startingTime\", \"finalStation\", \"finalTime\") VALUES (?, ?, ?, ?)";
 
-    public static String INSERT_TRAIN = "INSERT INTO train(route, date, cost) VALUES (?, ?, ?)";
+    public static String INSERT_TRAIN = "INSERT INTO train(route, date, cost, seats) VALUES (?, ?, ?, ?)";
 
     public static String INSERT_USER = "INSERT INTO \"user\"(email, password) VALUES (?, ?)";
 
@@ -53,10 +53,13 @@ public abstract class DBConstants {
 
     public static String GET_TRAINS_BY_USER = "SELECT r.\"startingTime\", ss.name startingName, ss.city startingCity, " +
                                               "r.\"finalTime\", sf.name finalName, sf.city finalCity, " + 
-                                              "t.date, t.cost, t.id " + 
+                                              "t.date, t.cost, t.id, t.seats " + 
                                               "FROM train t " + 
                                               "join route r on t.route = r.id " + 
                                               "join station ss on ss.id = r.\"startingStation\" " + 
                                               "join station sf on sf.id = r.\"finalStation\"" + 
                                               "JOIN ticket tic ON t.id = tic.train WHERE tic.user = ? LIMIT 3 OFFSET 3*(?-1)";
+
+    public static String COUNT_TICKETS = "SELECT COUNT(user) FROM ticket WHERE train = ?";
+
 }

@@ -48,7 +48,7 @@ public interface TrainDAO {
      * @return
      * @throws SQLException
      */
-    public long addTrain(Long route, Date date, Double cost) throws SQLException;
+    public long addTrain(Long route, Date date, Double cost, int seats) throws SQLException;
 
     /**
      * @param startingStation
@@ -75,5 +75,12 @@ public interface TrainDAO {
      * @throws SQLException
      */
     public Ticket addTicket(long trainId, long userId) throws SQLException;
+
+    /**
+     * @param trainId
+     * @return
+     * @throws SQLException
+     */
+    public Integer getReservedSeats(long trainId) throws SQLException;
     
 }

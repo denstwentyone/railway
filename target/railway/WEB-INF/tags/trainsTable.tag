@@ -13,6 +13,7 @@
         <th>Final Time</th>
         <th>Date</th>
         <th>Cost</th>
+        <th>Seats</th>
       </tr>
     </thead>
     <tbody>
@@ -24,10 +25,12 @@
             <td>${train.getRoute().getFinalTime()}</td>
             <td>${train.getDate()}</td>
             <td>${train.getCost()}</td>
+            <td>${train.getSeats()}</td>
             <td>
                 <c:if test = "${role == 'customer'}">
                 <form action="controller?action=order" method="post"> 
                     <input type="hidden" name="trainid" value="${train.getNumber()}">
+                    <input type="hidden" name="seats" value="${train.getSeats()}">
                     <input class="btn btn-default bg-secondary text-white m-1" type="submit" value="order">
                 </form>
                 </c:if>

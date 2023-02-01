@@ -28,8 +28,8 @@ public class DAOTest {
     List<Route> routes = List.of(new Route(stations.get(0), "12:00:00", stations.get(1), "12:00:00"),
                                 new Route(stations.get(2), "12:00:00", stations.get(3), "12:00:00"));
 
-    List<Train> trains = List.of(new Train(routes.get(0), "01.01.2023", 50.5),
-                                new Train(routes.get(1), "01.01.2023", 50.5));
+    List<Train> trains = List.of(new Train(routes.get(0), "01.01.2023", 1, 50.5, 200),
+                                new Train(routes.get(1), "01.01.2023", 1, 50.5, 200));
 
     User user = new User(1L, "email", "password");
 
@@ -209,9 +209,9 @@ public class DAOTest {
     @Test
     public void addTrainTest() {
         try {
-            Mockito.when(dao.addTrain(1L, new Date(0), 50.5)).thenReturn(1L);
+            Mockito.when(dao.addTrain(1L, new Date(0), 50.5, 200)).thenReturn(1L);
             
-            Long result = dao.addTrain(1L, new Date(0), 50.5);
+            Long result = dao.addTrain(1L, new Date(0), 50.5, 200);
 
             assert(result.equals(1L));
         } catch (SQLException e) {
@@ -219,4 +219,6 @@ public class DAOTest {
             e.printStackTrace();
         }
     }
+
+    
 }
