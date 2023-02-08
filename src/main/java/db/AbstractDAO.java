@@ -29,7 +29,7 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
 
     private static HikariDataSource dataSource;
 
-    final static Logger LOGGER = Logger.getLogger(AbstractDAO.class.getName());
+    private static Logger LOGGER = Logger.getLogger(AbstractDAO.class.getName());
 
     protected AbstractDAO() {
         
@@ -348,7 +348,8 @@ public abstract class AbstractDAO implements TrainDAO, UserDAO {
                 return result;
         } catch (Exception e) {
             e.printStackTrace();
-            LOGGER.error(e);
+            LOGGER.error("error");
+            LOGGER.error("Unexpected error", e);
             throw new SQLException("Something went wrong while log in");
 
         }

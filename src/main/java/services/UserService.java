@@ -4,6 +4,8 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
+import org.apache.log4j.Logger;
+
 import db.AbstractDAO;
 import db.entities.Train;
 import db.entities.User;
@@ -12,6 +14,9 @@ import static util.Validation.*;
 public class UserService implements Service {
     
     private static AbstractDAO dao;
+
+    private static Logger LOGGER = Logger.getLogger(UserService.class.getName());
+
 
     /**
      * @param dao
@@ -52,6 +57,7 @@ public class UserService implements Service {
             return dao.logIn(email, password);
         } catch (SQLException e) {
             e.printStackTrace();
+            LOGGER.error(e);
             throw new SQLException("invalid password or email");
         }
     }
