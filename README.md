@@ -1,6 +1,6 @@
-#Railway ticket office
+# Railway ticket office
 
-##Description
+## Description
 
 The administrator can add / delete / edit the list of Stations and Railway Routes between them. The route contains information as:
 - starting station and departure time;
@@ -19,7 +19,7 @@ If the user is registered in the system, he must be able to buy a ticket for the
 
 Application is developed using java core and PostgreSQl. It support both english and ukrainian languages and interface. During development was implemented such programming patterns: Command, Factory, Singleton and Front-controller. App uses jsp and tomcat as servlet container. Raillway ticket office is a servlet app that uses Servlet filters and session. Also this web aplication implements autentification and autorization. All dao methods and service classes are covered by unit tests. All data lists has thair own pagination.
 
-##PostgreSQL set up
+## PostgreSQL set up
 
 Use this script to create DB:
 
@@ -136,7 +136,7 @@ In the end you will get this:
 
 ![ERD](ERD.png)
 
-##Structure
+## Structure
 
 Simple MVC Controller:
 
@@ -209,7 +209,7 @@ public interface Action {
      * @param request
      * @return
      * @throws Exception
-     */
+     */ 
     String execute(HttpServletRequest request) throws Exception;
 
 }
